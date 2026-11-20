@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="profissionalai" name="inema-course"/>
+<title>Módulo 1.2 — La evolución de la IA | Integra tu Profesión con IA</title>
+<!-- ANTI-FOUC: bloqueante, ANTES do Tailwind -->
+<script>
+  (function () {
+    try {
+      var html = document.documentElement;
+      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+      function clone(o){var r={};for(var x in o)r[x]=o[x];return r;}
+      var p = clone(DEF);
+      try {
+        var raw = localStorage.getItem('inema.prefs');
+        if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object'){ for (var k in DEF) if (parsed[k]!=null) p[k]=parsed[k]; } }
+        else { var legacy = localStorage.getItem('theme'); if (legacy==='light') p.theme='claro'; else if (legacy==='dark') p.theme='inema-dark'; }
+      } catch(e){ p = clone(DEF); }
+      var THEMES = { 'inema-dark':{dark:true,attr:null,cs:'dark'},'claro':{dark:false,attr:null,cs:'light'},'sepia':{dark:false,attr:'sepia',cs:'light'},'foco':{dark:null,attr:'foco',cs:null},'contraste':{dark:true,attr:'contraste',cs:'dark'} };
+      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      if (t.dark===true) html.classList.add('dark'); else if (t.dark===false) html.classList.remove('dark');
+      if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
+      html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
+      html.setAttribute('data-font', p.font || 'inter');
+      html.setAttribute('data-accent', p.accent || 'emerald');
+      var s = html.style, scale = (+p.fontScale||100);
+      s.setProperty('--inema-font-scale', (scale/100).toString());
+      s.setProperty('font-size', scale + '%');
+      s.setProperty('--measure', (+p.lineWidth||68) + 'ch');
+      s.setProperty('--lh-body', (+p.leading||1.7).toString());
+      var fam = p.font==='system' ? 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' : (p.font==='leitura' ? '"Atkinson Hyperlegible", "Inter", system-ui, sans-serif' : '"Inter", system-ui, sans-serif');
+      s.setProperty('--font-body', fam);
+      var ACC = { emerald:[152,76,45], blue:[217,91,60], purple:[258,90,66], amber:[38,92,50], teal:[174,72,41], rose:[350,89,60] };
+      var a = ACC[p.accent] || ACC.emerald;
+      s.setProperty('--accent-h', a[0]+''); s.setProperty('--accent-s', a[1]+'%'); s.setProperty('--accent-l', a[2]+'%');
+      s.setProperty('--accent', 'hsl(' + a[0] + ' ' + a[1] + '% ' + a[2] + '%)');
+    } catch(err){ try{ document.documentElement.classList.add('dark'); document.documentElement.style.colorScheme='dark'; }catch(e){} }
+  })();
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/learn.css" rel="stylesheet"/>
+<!-- Manifesto do curso (IDÊNTICO em todas as páginas) -->
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "profissionalai",
+    "tracks": [
+      { "n": "1", "title": "Fundamentos", "modules": [
+        { "id": "1-1", "title": "A Virada: por que agora", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "A Evolução da IA", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" },
+        { "id": "1-3", "title": "A Evolução das Profissões", "topics": 6, "href": "curso/trilha1/modulo-1-3.html" },
+        { "id": "1-4", "title": "Seja a Pessoa de IA", "topics": 6, "href": "curso/trilha1/modulo-1-4.html" }
+      ]},
+      { "n": "2", "title": "Carreiras", "modules": [
+        { "id": "2-1", "title": "Diagnóstico da sua profissão", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Acelere sua Produção com IA", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" },
+        { "id": "2-3", "title": "Gosto & Critério", "topics": 6, "href": "curso/trilha2/modulo-2-3.html" },
+        { "id": "2-4", "title": "Blindagem & Múltiplas Rendas", "topics": 6, "href": "curso/trilha2/modulo-2-4.html" }
+      ]},
+      { "n": "3", "title": "Avançado: Especialistas de IA", "modules": [
+        { "id": "3-1", "title": "A Pirâmide da IA", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Engenharia de Contexto & AI-OS", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" },
+        { "id": "3-3", "title": "Agentic & Arquitetura de Intenção", "topics": 6, "href": "curso/trilha3/modulo-3-3.html" },
+        { "id": "3-4", "title": "Construa seu Jarvis", "topics": 6, "href": "curso/trilha3/modulo-3-4.html" }
+      ]}
+    ]
+  }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 5rem; }
+    .skip { position: absolute; left: -999px; top: 0; z-index: 100; }
+    .skip:focus { left: 1rem; top: 0.5rem; background: #059669; color: #fff; padding: .5rem .75rem; border-radius: .5rem; }
+
+    /* Light mode — Parte 1: base */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Light mode — Parte 2: acento da trilha (EMERALD / T1) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5,150,105,0.18); }
+
+    /* Light mode — Parte 3: remove gradientes + cores especiais */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Light mode — Parte 4: nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    /* Light mode — diagramas SVG mais suaves */
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+
+    /* Dark — bordas e divisórias suaves */
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+
+    /* Pulso dos SVGs (só sem reduced-motion) */
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s}
+      .wf-a:nth-child(4){animation-delay:.75s} .wf-a:nth-child(5){animation-delay:1s}
+    }
+  </style>
+<link href="https://inematds.github.io/profissionalai/curso/trilha1/modulo-1-2.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/profissionalai/en/curso/trilha1/modulo-1-2.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/profissionalai/es/curso/trilha1/modulo-1-2.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/modulo-1-2.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha1/modulo-1-2.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-1-2.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="skip" href="#conteudo">Saltar al contenido</a>
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-3">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span>
+<span class="font-bold text-lg hidden sm:inline">Integra tu profesión con IA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html">
+<span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span><span class="hidden sm:inline">Trayectorias profesionales</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">
+<span class="sm:hidden">T3</span><span class="hidden sm:inline">Avanzado</span>
+</a>
+<button class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" title="Mi recorrido" type="button">
+<span aria-hidden="true">◷</span><span class="hidden lg:inline">Trayectoria</span>
+<span class="inema-journey-badge hidden" data-count="0" data-inema-journey-badge=""></span>
+</button>
+<div class="relative">
+<button aria-expanded="false" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" data-inema-appearance-toggle="[data-inema-appearance]" title="Apariencia y lectura" type="button">
+<span aria-hidden="true">◑</span>
+</button>
+<div class="inema-appearance-pop" data-inema-appearance="">
+<div class="inema-segment"><button data-inema-set-theme="inema-dark">Oscuro</button><button data-inema-set-theme="claro">Claro</button><button data-inema-set-theme="sepia">Sepia</button><button data-inema-set-theme="foco">Enfoque</button><button data-inema-set-theme="contraste">Alto contraste</button></div>
+<div class="inema-segment"><button data-inema-set-font="inter">Inter</button><button data-inema-set-font="system">Sistema</button><button data-inema-set-font="leitura">Lectura</button></div>
+<div class="inema-segment"><button data-inema-set-fontscale="100">A</button><button data-inema-set-fontscale="112">A+</button><button data-inema-set-fontscale="125">A++</button></div>
+<div class="inema-segment"><button data-inema-set-linewidth="60">Estrecho</button><button data-inema-set-linewidth="68">Medio</button><button data-inema-set-linewidth="75">Amplio</button></div>
+<div class="inema-segment"><button data-inema-set-leading="1.45">Compacto</button><button data-inema-set-leading="1.7">Cómodo</button></div>
+<div class="inema-accent-grid"><button data-inema-set-accent="emerald"></button><button data-inema-set-accent="blue"></button><button data-inema-set-accent="purple"></button><button data-inema-set-accent="amber"></button><button data-inema-set-accent="teal"></button><button data-inema-set-accent="rose"></button></div>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle" title="Tema claro/oscuro">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- BREADCRUMB -->
+<nav aria-label="Ruta de navegación" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-emerald-400" href="../../index.html">Inicio</a><span>/</span>
+<a class="hover:text-emerald-400" href="index.html">Fundamentos</a><span>/</span>
+<span class="text-emerald-400">Módulo 1.2</span>
+</div>
+</nav>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.2</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🤖 La evolución de la IA</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">De sistemas de reglas al agente que trabaja contigo. En pocos años, la IA pasó de ser un software limitado y costoso a convertirse en un socio que entiende, genera y actúa. Entender esta línea de tiempo te ayuda a ver hacia dónde va todo y a posicionarte antes.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~35</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Línea de tiempo</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<!-- CONTEÚDO + TOC -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="conteudo">
+<div class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-10">
+<div class="inema-prose">
+<!-- Medidor do módulo -->
+<div aria-label="Progreso del módulo 1.2" aria-valuemax="100" aria-valuemin="0" class="inema-bar-wrap mb-10 bg-dark-800 border border-dark-600 rounded-xl p-4" data-inema-meter="modulo:1-2" role="progressbar">
+<div class="flex items-center justify-between mb-2 text-sm">
+<span class="text-neutral-400">Tu progreso en este módulo</span>
+<span><span class="inema-meter-count" data-inema-meter-frac="">0 de 6</span> · <span class="text-emerald-400 font-semibold" data-inema-meter-pct="">0%</span></span>
+</div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+<!-- TÓPICO 1 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-1" id="topico-1">
+<div class="flex items-center justify-between mb-6 gap-4">
+<div class="flex items-center space-x-4">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+<h2 class="text-2xl font-bold">📟 Antes de los LLM — reglas y ML estrecho</h2>
+</div>
+<button aria-pressed="false" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Marcar una duda en este tema" type="button"><span aria-hidden="true">?</span><span>Duda</span></button>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t1-p1">Durante décadas, "IA" significaba <strong class="text-emerald-400">sistemas de reglas</strong> y modelos de machine learning <strong class="text-emerald-400">limitados</strong>: cada uno entrenado para una sola tarea: detectar spam, recomendar productos, reconocer un rostro. Tenía aspecto de constructor, exigía especialistas y datos etiquetados, y no generalizaba: un modelo de spam no sabía traducir y uno de traducción no sabía resumir.</p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🧠</span> La idea central</h3>
+<p class="text-neutral-300 mb-4">La IA «antigua» funcionaba, pero era como una caja de herramientas en la que cada pieza servía para un solo tornillo específico. Cambiar de tarea significaba prácticamente empezar desde cero.</p>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Tarea única:</strong> un modelo, un problema. Nada de pedir «cualquier cosa».</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Costoso de entrenar:</strong> necesitaba datos etiquetados y equipos especializados.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Sin rodeos:</strong> no le hablabas en portugués: lo programabas.</span></li>
+</ul>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-2">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Reglas</div><div class="text-xs text-neutral-400">Si esto, entonces aquello</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Estrecho</div><div class="text-xs text-neutral-400">Una tarea por modelo</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Costoso</div><div class="text-xs text-neutral-400">Datos + especialistas</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Especialista</div><div class="text-xs text-neutral-400">No generalizaba</div></div>
+</div>
+<div class="flex justify-start mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
+<span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span>
+</button>
+</div>
+</section>
+<!-- TÓPICO 2 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-2" id="topico-2">
+<div class="flex items-center justify-between mb-6 gap-4">
+<div class="flex items-center space-x-4">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+<h2 class="text-2xl font-bold">💥 El cambio decisivo de ChatGPT</h2>
+</div>
+<button aria-pressed="false" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Marcar una duda en este tema" type="button"><span aria-hidden="true">?</span><span>Duda</span></button>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t2-p1">En <strong class="text-emerald-400">noviembre de 2022</strong>, ChatGPT abrió la IA a cualquier persona: bastaba con conversar en lenguaje natural y respondía. En cerca de <strong class="text-emerald-400">2 meses</strong> alcanzó ~100 millones de usuarios — récord de adopción en aquel momento. Ya no era una tarea única: el mismo sistema escribía, resumía, explicaba y programaba.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Por qué fue un hito</h3>
+<p class="text-neutral-300">Se estimó que ChatGPT llegó a <strong>~100 millones de usuarios en cerca de 2 meses</strong> tras su lanzamiento (nov/2022), la aplicación de consumo de más rápido crecimiento registrada hasta entonces. El salto no fue solo técnico — fue de <strong>acceso</strong>: la IA dejó de ser una herramienta de laboratorio y se convirtió en algo que también usa tu tía.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por qué esto te importa</h3>
+<p class="text-neutral-300">La barrera de entrada cayó a cero. No necesitas "saber programar IA"; necesitas saber <strong>conversar con ella y dirigirla</strong>. Esta es la habilidad que desarrolla el resto del curso.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-2">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Nov/2022</div><div class="text-xs text-neutral-400">El lanzamiento</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">~2 meses</div><div class="text-xs text-neutral-400">Para 100M de usuarios</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Lenguaje natural</div><div class="text-xs text-neutral-400">Basta con conversar</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Generalista</div><div class="text-xs text-neutral-400">Muchas tareas</div></div>
+</div>
+<div class="flex justify-start mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
+<span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span>
+</button>
+</div>
+</section>
+<!-- TÓPICO 3 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-3" id="topico-3">
+<div class="flex items-center justify-between mb-6 gap-4">
+<div class="flex items-center space-x-4">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+<h2 class="text-2xl font-bold">🖼️ De texto a multimodal</h2>
+</div>
+<button aria-pressed="false" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Marcar una duda en este tema" type="button"><span aria-hidden="true">?</span><span>Duda</span></button>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t3-p1">En <strong class="text-emerald-400">marzo de 2023</strong> llegó GPT-4 y la IA empezó a ver y escuchar, no solo a leer. <strong class="text-emerald-400">Multimodal</strong> significa entender y producir varios formatos: imagen, voz y video, además de texto. Junto con esto llegó el <strong class="text-emerald-400">contexto largo</strong> — la capacidad de «leer» documentos completos de una vez, y no solo frases cortas.</p>
+<!-- TIMELINE NUMERADA -->
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">👁️ Visión — entiende imágenes</h4><p class="text-neutral-300 text-sm">Envía una foto, un gráfico o una captura de pantalla: la IA la describe, extrae datos y responde sobre lo que está viendo.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">🎙️ Voz — habla y escucha</h4><p class="text-neutral-300 text-sm">Conversación por audio en tiempo real. Tú dictas; ella transcribe, entiende y responde hablando.</p></div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold mb-2">📄 Contexto largo — lo lee todo de una vez</h4><p class="text-neutral-300 text-sm">Pega un contrato, un informe o un libro entero: lo mantiene todo en mente para resumir, comparar y cruzar información.</p></div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Deja de describir una pantalla cuando puedes <strong>mandar la captura de pantalla</strong>. Deja de transcribir cuando puedas <strong>pegar el documento</strong>. Lo multimodal solo ayuda a quien lo aprovecha: dale a la IA el material sin procesar, no tu resumen.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-2">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Mar/2023</div><div class="text-xs text-neutral-400">Llega GPT-4</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Multimodal</div><div class="text-xs text-neutral-400">Imagen, voz, video</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Contexto extenso</div><div class="text-xs text-neutral-400">Documentos completos</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Más capaz</div><div class="text-xs text-neutral-400">Mejor razonamiento</div></div>
+</div>
+<div class="flex justify-start mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
+<span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span>
+</button>
+</div>
+</section>
+<!-- TÓPICO 4 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-4" id="topico-4">
+<div class="flex items-center justify-between mb-6 gap-4">
+<div class="flex items-center space-x-4">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+<h2 class="text-2xl font-bold">🧰 De chatbot a herramienta</h2>
+</div>
+<button aria-pressed="false" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Marcar una duda en este tema" type="button"><span aria-hidden="true">?</span><span>Duda</span></button>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t4-p1">Entra <strong class="text-emerald-400">2023 e 2024</strong>, la IA salió de la pestaña aislada del navegador y entró en el <strong class="text-emerald-400">flujo de trabajo</strong>. Los asistentes empezaron a integrarse en el correo electrónico, el editor de documentos, la hoja de cálculo y el editor de código, donde ya se trabaja. Dejó de ser un lugar al que ibas y se convirtió en una capa presente en todo.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Chatbot en la pestaña</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sales del trabajo, abres el chat y copias y pegas de vuelta.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Excelente para preguntar y hacer borradores de cosas puntuales.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Pero el contexto de tu trabajo queda fuera.</span></li>
+</ul>
+</div>
+<div class="bg-dark-800 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">→ Herramienta en el flujo</h4>
+<ul class="space-y-3 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">→</span><span>La IA está dentro del correo, el documento y el editor de código.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">→</span><span>Ve lo que estás haciendo y actúa ahí mismo.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">→</span><span>Menos copiar y pegar; más trabajo de verdad.</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> El salto del código</h3>
+<p class="text-neutral-300">El asistente integrado se volvió estándar primero en la programación: sugería y completaba código dentro del editor. Fue el ensayo de lo que se extendería a todas las profesiones: la IA no como destino, sino como <strong>parte del entorno</strong> en la que ya trabajas.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-2">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">2023–2024</div><div class="text-xs text-neutral-400">La integración</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">En el flujo</div><div class="text-xs text-neutral-400">Dónde el trabajo está</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Código</div><div class="text-xs text-neutral-400">Primer caso sólido</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Capa</div><div class="text-xs text-neutral-400">En todo, no en un solo lugar</div></div>
+</div>
+<div class="flex justify-start mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
+<span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span>
+</button>
+</div>
+</section>
+<!-- TÓPICO 5 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-5" id="topico-5">
+<div class="flex items-center justify-between mb-6 gap-4">
+<div class="flex items-center space-x-4">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+<h2 class="text-2xl font-bold">🦾 De herramienta a agente</h2>
+</div>
+<button aria-pressed="false" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Marcar una duda en este tema" type="button"><span aria-hidden="true">?</span><span>Duda</span></button>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t5-p1">Entra <strong class="text-emerald-400">2024 e 2025</strong> llegó el truco clave: la IA dejó de solo responder y pasó a <strong class="text-emerald-400">actuar</strong>. Un agente usa herramientas, navega, ejecuta pasos y completa tareas de varias etapas. La familia <strong class="text-emerald-400">Claude (Sonnet y Opus)</strong> avanzó en esto, con el llamado "computer use" — la IA operando una computadora, haciendo clic y escribiendo como tú lo harías.</p>
+<!-- SVG: ferramenta → assistente → agente → parceiro -->
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">
+<svg aria-label="Escalera de evolución de la IA: de herramienta a asistente, a agente y a socio siempre activo" class="w-full h-auto" role="img" viewbox="0 0 1000 240">
+<defs>
+<lineargradient id="m12-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></lineargradient>
+<filter height="180%" id="m12-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="m12-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="m12-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+<marker id="m12-ahc" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#m12-grid)" height="240" width="1000" x="0" y="0"></rect>
+<!-- conexões em escada -->
+<g fill="none" opacity="0.7" stroke-width="2.5">
+<path d="M196,180 L256,180" marker-end="url(#m12-ah)" stroke="#34d399"></path>
+<path d="M412,138 L472,138" marker-end="url(#m12-ah)" stroke="#34d399"></path>
+<path d="M628,96 L688,96" marker-end="url(#m12-ahc)" stroke="#38bdf8"></path>
+</g>
+<!-- degrau 1: ferramenta -->
+<g filter="url(#m12-glow)"><rect fill="#0e2018" height="58" rx="13" stroke="url(#m12-grad)" stroke-width="2.5" width="156" x="40" y="156"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="118" y="182">Herramienta</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="118" y="201">tú usas</text>
+<!-- degrau 2: assistente -->
+<g filter="url(#m12-glow)"><rect fill="#0e2018" height="58" rx="13" stroke="url(#m12-grad)" stroke-width="2.5" width="156" x="256" y="114"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="334" y="140">Asistente</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="334" y="159">en tu flujo</text>
+<!-- degrau 3: agente -->
+<g filter="url(#m12-glow)"><rect fill="#0e2018" height="58" rx="13" stroke="url(#m12-grad)" stroke-width="2.5" width="156" x="472" y="72"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="550" y="98">Agente</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="550" y="117">actúa por ti</text>
+<!-- degrau 4: parceiro (ciano, futuro) -->
+<g class="wf-a" filter="url(#m12-glow)"><rect fill="#0e1b26" height="58" rx="13" stroke="#38bdf8" stroke-width="2.5" width="172" x="688" y="30"></rect></g>
+<text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="774" y="56">Socio</text>
+<text fill="#7fc8f0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="774" y="75">siempre activo</text>
+</svg>
+<p class="text-xs text-neutral-500 mt-2 text-center">Cada nivel conserva el anterior y añade autonomía — desde a quién recurres hasta quién trabaja contigo. Diagrama ilustrativo.</p>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Qué cambia en la práctica</h3>
+<p class="text-neutral-300">Con un agente, dejas de hacer cada paso y pasas a <strong>describir el resultado</strong>: «investiga estos 5 proveedores, arma la tabla y envíamela». La IA encadena las etapas. Saber cuándo confiar en eso es el tema de la Ruta 3.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-2">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">2024–2025</div><div class="text-xs text-neutral-400">La era del agente</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Usa herramientas</div><div class="text-xs text-neutral-400">No solo responde</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Claude Sonnet/Opus</div><div class="text-xs text-neutral-400">Familia que avanzó</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Uso de la computadora</div><div class="text-xs text-neutral-400">Opera la computadora</div></div>
+</div>
+<div class="flex justify-start mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
+<span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span>
+</button>
+</div>
+</section>
+<!-- TÓPICO 6 -->
+<section class="mb-16" data-inema-topic="modulo-1-2#topico-6" id="topico-6">
+<div class="flex items-center justify-between mb-6 gap-4">
+<div class="flex items-center space-x-4">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+<h2 class="text-2xl font-bold">🔮 Hacia dónde vamos — el compañero siempre conectado</h2>
+</div>
+<button aria-pressed="false" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Marcar una duda en este tema" type="button"><span aria-hidden="true">?</span><span>Duda</span></button>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed" data-inema-block="m1-2-t6-p1">El siguiente nivel no consiste en que actives la IA cada vez — es que funcione en <strong class="text-emerald-400">segundo plano</strong>, notar qué necesita atención y <strong class="text-emerald-400">anticipar</strong>. Un socio siempre conectado, que trabaja mientras duermes. Es la idea de un «Jarvis» personal: exactamente lo que vas a construir en la <strong class="text-emerald-400">Ruta 3</strong>.</p>
+<!-- TIMELINE NUMERADA: a evolução em uma linha -->
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-5 flex items-center"><span class="mr-2">🧭</span> La línea de tiempo, de principio a fin</h3>
+<div class="space-y-4">
+<div class="flex items-start space-x-3"><span class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs flex-shrink-0">1</span><div><strong class="text-white">Antes de 2022</strong><span class="text-neutral-300"> — reglas y ML especializados: un modelo, una tarea.</span></div></div>
+<div class="flex items-start space-x-3"><span class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs flex-shrink-0">2</span><div><strong class="text-white">Nov/2022</strong><span class="text-neutral-300"> — ChatGPT abre la IA para todos; ~100M en ~2 meses.</span></div></div>
+<div class="flex items-start space-x-3"><span class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs flex-shrink-0">3</span><div><strong class="text-white">Mar/2023</strong><span class="text-neutral-300"> — GPT-4: multimodal (imagen, voz, video) y contexto largo.</span></div></div>
+<div class="flex items-start space-x-3"><span class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs flex-shrink-0">4</span><div><strong class="text-white">2023–2024</strong><span class="text-neutral-300"> — de chatbot a herramienta en tu flujo de trabajo.</span></div></div>
+<div class="flex items-start space-x-3"><span class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs flex-shrink-0">5</span><div><strong class="text-white">2024–2025</strong><span class="text-neutral-300"> — de herramienta a agente: usa herramientas y ejecuta tareas.</span></div></div>
+<div class="flex items-start space-x-3"><span class="flex items-center justify-center w-7 h-7 rounded-full bg-sky-500/20 text-sky-400 font-bold text-xs flex-shrink-0">6</span><div><strong class="text-white">En adelante</strong><span class="text-neutral-300"> — un socio siempre conectado que se anticipa y trabaja en segundo plano.</span></div></div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> La lectura que importa</h3>
+<p class="text-neutral-300">La dirección está clara: <strong>de responder a actuar, de actuar a anticipar</strong>. Quien entiende esto deja de tratar la IA como una cajita de preguntas y empieza a diseñarla como una aliada. Ese es el destino del curso, y el puente hacia tu Jarvis.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-2">
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">En segundo plano</div><div class="text-xs text-neutral-400">Funciona solo</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Se anticipa</div><div class="text-xs text-neutral-400">Actúa antes de que lo pidas</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Siempre activo</div><div class="text-xs text-neutral-400">Trabaja mientras duermes</div></div>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600"><div class="text-emerald-400 font-bold text-sm mb-1">Jarvis</div><div class="text-xs text-neutral-400">Puente hacia la Ruta 3</div></div>
+</div>
+<div class="flex justify-start mt-6">
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/30 transition-colors" data-inema-read-toggle="" type="button">
+<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
+<span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span>
+</button>
+</div>
+</section>
+<!-- CHECAGEM LEVE -->
+<div class="inema-check mt-4 mb-12 bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-1-2#q1">
+<p class="font-medium mb-4">Autoevaluación (opcional): ¿cuál es la gran transición en curso en la IA?</p>
+<div class="inema-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">De software caro a software barato, sin cambiar lo que hace</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">De chatbot que responde a agente que actúa (rumbo a ser socio)</button>
+<button class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">De modelos multimodales de vuelta a modelos solo de texto</button>
+</div>
+<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+</div>
+<!-- RESUMO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumen del módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Antes era estrecho</strong><span class="text-neutral-400"> — reglas y ML para una sola tarea, costosos de entrenar.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">ChatGPT se abrió a todo el mundo</strong><span class="text-neutral-400"> — nov/2022, ~100M en ~2 meses.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Multimodal + contexto largo</strong><span class="text-neutral-400"> — GPT-4 (mar/2023): imagen, voz, video, documentos completos.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Entró en el flujo y se convirtió en agente</strong><span class="text-neutral-400"> — usa herramientas y ejecuta tareas (Claude Sonnet/Opus, computer use).</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Pasa a ser un socio siempre activo</strong><span class="text-neutral-400"> — trabaja en segundo plano y se anticipa: tu Jarvis.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-emerald-400 mb-2">Próximo paso</h3>
+<p class="text-neutral-300">Ruta 1 · Módulo 1.3 — La evolución de las profesiones: cómo cada ola tecnológica remodeló el trabajo y qué cambia con la IA.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Volver a Fundamentos</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-3.html">Siguiente: 1.3 — La Evolución de las Profesiones →</a>
+</div>
+</div>
+</section>
+</div>
+<!-- TOC -->
+<aside>
+<nav aria-label="Índice de la página" class="hidden lg:block sticky top-24 self-start" data-inema-toc="">
+<p class="text-sm text-neutral-400 mb-3">Sección <span data-inema-section-counter="">1 de 6</span></p>
+<ol class="space-y-1 text-sm">
+<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-emerald-400" href="#topico-1">1. Antes de los LLM</a></li>
+<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-emerald-400" href="#topico-2">2. El giro de ChatGPT</a></li>
+<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-emerald-400" href="#topico-3">3. De texto a multimodal</a></li>
+<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-emerald-400" href="#topico-4">4. De chatbot a herramienta</a></li>
+<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-emerald-400" href="#topico-5">5. De herramienta a agente</a></li>
+<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-emerald-400" href="#topico-6">6. Hacia dónde va</a></li>
+</ol>
+</nav>
+</aside>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Integra tu profesión con IA — <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a> · 2026</p>
+</div>
+</footer>
+<!-- SCRIPTS NÚCLEO v1 -->
+<script>
+    function toggleTopic(button){ const item=button.closest('.topic-item'); if(!item) return; const exp=item.querySelector('.topic-explanation'); const card=button.closest('.bg-dark-800'); if(card){ card.querySelectorAll('.topic-explanation.active').forEach(e=>{ if(e!==exp) e.classList.remove('active'); }); } if(exp){ exp.classList.toggle('active'); const open=exp.classList.contains('active'); button.setAttribute('aria-expanded', open?'true':'false'); } }
+    (function(){ const tt=document.getElementById('theme-toggle'); const d=document.getElementById('theme-toggle-dark-icon'); const l=document.getElementById('theme-toggle-light-icon'); const html=document.documentElement; function sync(){ if(html.classList.contains('dark')){ l&&l.classList.remove('hidden'); d&&d.classList.add('hidden'); } else { d&&d.classList.remove('hidden'); l&&l.classList.add('hidden'); } } sync(); tt&&tt.addEventListener('click',()=>{ html.classList.toggle('dark'); const dark=html.classList.contains('dark'); html.style.colorScheme=dark?'dark':'light'; localStorage.setItem('theme', dark?'dark':'light'); try{ if(window.INEMA&&INEMA.setPref) INEMA.setPref('theme', dark?'inema-dark':'claro'); }catch(e){} sync(); }); })();
+    function openModal(id){ const m=document.getElementById(id); if(m){ m.classList.remove('hidden'); document.body.style.overflow='hidden'; } }
+    function closeModal(){ document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden')); document.body.style.overflow='auto'; }
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+  </script>
+<!-- CAMADA DE APRENDIZAGEM -->
+<script src="../../../assets/learn.js"></script>
+<script>
+    if (window.INEMA && typeof window.INEMA.init === 'function') { window.INEMA.init(); }
+    window.addEventListener('DOMContentLoaded', function(){
+      if (window.INEMA && INEMA.registerCheck) {
+        INEMA.registerCheck('modulo-1-2#q1', { answer: 1, explain: {
+          0: 'Não. A IA não ficou só mais barata — o que ela FAZ mudou: passou a agir, não só responder.',
+          1: 'Isso. O eixo da evolução é de chatbot que responde para agente que age — rumo a parceiro sempre-ligado.',
+          2: 'Não. O caminho é o contrário: de só texto para multimodal, e de responder para agir.'
+        }});
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="profissionalai" name="inema-course"/>
+<title>Track 1 — Fundamentals | Integrate AI into Your Profession</title>
+<script>
+  (function () {
+    try {
+      var html = document.documentElement;
+      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+      function clone(o){var r={};for(var x in o)r[x]=o[x];return r;}
+      var p = clone(DEF);
+      try {
+        var raw = localStorage.getItem('inema.prefs');
+        if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object'){ for (var k in DEF) if (parsed[k]!=null) p[k]=parsed[k]; } }
+        else { var legacy = localStorage.getItem('theme'); if (legacy==='light') p.theme='claro'; else if (legacy==='dark') p.theme='inema-dark'; }
+      } catch(e){ p = clone(DEF); }
+      var THEMES = { 'inema-dark':{dark:true,attr:null,cs:'dark'},'claro':{dark:false,attr:null,cs:'light'},'sepia':{dark:false,attr:'sepia',cs:'light'},'foco':{dark:null,attr:'foco',cs:null},'contraste':{dark:true,attr:'contraste',cs:'dark'} };
+      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      if (t.dark===true) html.classList.add('dark'); else if (t.dark===false) html.classList.remove('dark');
+      if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
+      html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
+      html.setAttribute('data-font', p.font || 'inter');
+      html.setAttribute('data-accent', p.accent || 'emerald');
+      var s = html.style, scale = (+p.fontScale||100);
+      s.setProperty('--inema-font-scale', (scale/100).toString());
+      s.setProperty('font-size', scale + '%');
+      s.setProperty('--measure', (+p.lineWidth||68) + 'ch');
+      s.setProperty('--lh-body', (+p.leading||1.7).toString());
+      var fam = p.font==='system' ? 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' : (p.font==='leitura' ? '"Atkinson Hyperlegible", "Inter", system-ui, sans-serif' : '"Inter", system-ui, sans-serif');
+      s.setProperty('--font-body', fam);
+      var ACC = { emerald:[152,76,45], blue:[217,91,60], purple:[258,90,66], amber:[38,92,50], teal:[174,72,41], rose:[350,89,60] };
+      var a = ACC[p.accent] || ACC.emerald;
+      s.setProperty('--accent-h', a[0]+''); s.setProperty('--accent-s', a[1]+'%'); s.setProperty('--accent-l', a[2]+'%');
+      s.setProperty('--accent', 'hsl(' + a[0] + ' ' + a[1] + '% ' + a[2] + '%)');
+    } catch(err){ try{ document.documentElement.classList.add('dark'); document.documentElement.style.colorScheme='dark'; }catch(e){} }
+  })();
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../../../assets/learn.css" rel="stylesheet"/>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "profissionalai",
+    "tracks": [
+      { "n": "1", "title": "Fundamentos", "modules": [
+        { "id": "1-1", "title": "A Virada: por que agora", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "A Evolução da IA", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" },
+        { "id": "1-3", "title": "A Evolução das Profissões", "topics": 6, "href": "curso/trilha1/modulo-1-3.html" },
+        { "id": "1-4", "title": "Seja a Pessoa de IA", "topics": 6, "href": "curso/trilha1/modulo-1-4.html" }
+      ]},
+      { "n": "2", "title": "Carreiras", "modules": [
+        { "id": "2-1", "title": "Diagnóstico da sua profissão", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Acelere sua Produção com IA", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" },
+        { "id": "2-3", "title": "Gosto & Critério", "topics": 6, "href": "curso/trilha2/modulo-2-3.html" },
+        { "id": "2-4", "title": "Blindagem & Múltiplas Rendas", "topics": 6, "href": "curso/trilha2/modulo-2-4.html" }
+      ]},
+      { "n": "3", "title": "Avançado: Especialistas de IA", "modules": [
+        { "id": "3-1", "title": "A Pirâmide da IA", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Engenharia de Contexto & AI-OS", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" },
+        { "id": "3-3", "title": "Agentic & Arquitetura de Intenção", "topics": 6, "href": "curso/trilha3/modulo-3-3.html" },
+        { "id": "3-4", "title": "Construa seu Jarvis", "topics": 6, "href": "curso/trilha3/modulo-3-4.html" }
+      ]}
+    ]
+  }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 5rem; }
+    .skip { position: absolute; left: -999px; top: 0; z-index: 100; }
+    .skip:focus { left: 1rem; top: 0.5rem; background: #059669; color: #fff; padding: .5rem .75rem; border-radius: .5rem; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s} .wf-a:nth-child(4){animation-delay:.75s}
+    }
+  </style>
+<link href="https://inematds.github.io/profissionalai/curso/trilha1/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/profissionalai/en/curso/trilha1/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/profissionalai/es/curso/trilha1/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha1/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="skip" href="#conteudo">Skip to content</a>
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-3">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🧭</span>
+<span class="font-bold text-lg hidden sm:inline">Integrate Your Profession With AI</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Careers</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Advanced</span></a>
+<button class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" title="My journey" type="button"><span aria-hidden="true">◷</span><span class="hidden lg:inline">Journey</span><span class="inema-journey-badge hidden" data-count="0" data-inema-journey-badge=""></span></button>
+<div class="relative">
+<button aria-expanded="false" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" data-inema-appearance-toggle="[data-inema-appearance]" title="Appearance and reading" type="button"><span aria-hidden="true">◑</span></button>
+<div class="inema-appearance-pop" data-inema-appearance="">
+<div class="inema-segment"><button data-inema-set-theme="inema-dark">Dark</button><button data-inema-set-theme="claro">Clear</button><button data-inema-set-theme="sepia">Sepia</button><button data-inema-set-theme="foco">Focus</button><button data-inema-set-theme="contraste">High contrast</button></div>
+<div class="inema-segment"><button data-inema-set-font="inter">Inter</button><button data-inema-set-font="system">System</button><button data-inema-set-font="leitura">Reading</button></div>
+<div class="inema-segment"><button data-inema-set-fontscale="100">A</button><button data-inema-set-fontscale="112">A+</button><button data-inema-set-fontscale="125">A++</button></div>
+<div class="inema-segment"><button data-inema-set-linewidth="60">Narrow</button><button data-inema-set-linewidth="68">Intermediate</button><button data-inema-set-linewidth="75">Wide</button></div>
+<div class="inema-segment"><button data-inema-set-leading="1.45">Compact</button><button data-inema-set-leading="1.7">Comfortable</button></div>
+<div class="inema-accent-grid"><button data-inema-set-accent="emerald"></button><button data-inema-set-accent="blue"></button><button data-inema-set-accent="purple"></button><button data-inema-set-accent="amber"></button><button data-inema-set-accent="teal"></button><button data-inema-set-accent="rose"></button></div>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle" title="Light/dark theme">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-4"><a class="group inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-sm font-semibold hover:bg-emerald-500/20 transition-colors" href="../../promocao/">✨ Discover the course’s immersive presentation <span class="group-hover:translate-x-1 transition-transform">→</span></a></div>
+<span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">TRACK 1</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🌍 Fundamentals</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mb-8">The groundwork before practice: what market data tells us, how AI evolved from a tool into a partner, how each technological wave reshaped professions — and why becoming “the AI person” is an advantage with an expiration date.</p>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden max-w-4xl">
+<svg aria-label="AI evolves from tool to assistant, then agent, and finally work partner" class="w-full h-auto" role="img" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="t1-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></lineargradient>
+<filter height="180%" id="t1-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="t1-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="t1-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+</defs>
+<rect fill="url(#t1-grid)" height="200" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.55" stroke="#34d399" stroke-width="1.8">
+<path d="M214,100 L246,100" marker-end="url(#t1-ah)"></path>
+<path d="M460,100 L492,100" marker-end="url(#t1-ah)"></path>
+<path d="M706,100 L738,100" marker-end="url(#t1-ah)"></path>
+</g>
+<g font-family="Inter,sans-serif">
+<g class="wf-a"><rect fill="#0e1b26" height="64" rx="14" stroke="#38bdf8" stroke-width="2" width="174" x="40" y="68"></rect><text fill="#bfe6ff" font-size="16" font-weight="600" text-anchor="middle" x="127" y="96">Tool</text><text fill="#9ad6ff" font-size="11.5" text-anchor="middle" x="127" y="116">you operate</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="64" rx="14" stroke="#38bdf8" stroke-width="2" width="174" x="286" y="68"></rect><text fill="#bfe6ff" font-size="16" font-weight="600" text-anchor="middle" x="373" y="96">Assistant</text><text fill="#9ad6ff" font-size="11.5" text-anchor="middle" x="373" y="116">you ask</text></g>
+<g class="wf-a"><rect fill="#0e1b26" height="64" rx="14" stroke="#38bdf8" stroke-width="2" width="174" x="532" y="68"></rect><text fill="#bfe6ff" font-size="16" font-weight="600" text-anchor="middle" x="619" y="96">Agent</text><text fill="#9ad6ff" font-size="11.5" text-anchor="middle" x="619" y="116">acts on its own</text></g>
+</g>
+<g filter="url(#t1-glow)"><rect fill="#0e2018" height="72" rx="14" stroke="url(#t1-grad)" stroke-width="2.5" width="184" x="778" y="64"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="17" font-weight="600" text-anchor="middle" x="870" y="96">Partner</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="11.5" text-anchor="middle" x="870" y="118">works with you</text>
+</svg>
+</div>
+<div class="grid grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">4</div><div class="text-xs text-neutral-400">Modules</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">24</div><div class="text-xs text-neutral-400">Topics</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~2h30</div><div class="text-xs text-neutral-400">Duration</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Basic</div><div class="text-xs text-neutral-400">Level</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="conteudo">
+<!-- Medidor da trilha -->
+<div aria-label="Fundamentals track progress" aria-valuemax="100" aria-valuemin="0" class="mb-10 bg-dark-800 border border-dark-600 rounded-xl p-4" data-inema-meter="trilha:1" role="progressbar">
+<div class="flex items-center justify-between mb-2 text-sm"><span class="text-neutral-400">Track progress</span><span><span class="inema-meter-count" data-inema-meter-frac="">0 of 24</span> · <span class="text-emerald-400 font-semibold" data-inema-meter-pct="">0%</span></span></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+<!-- MAPA DA TRILHA -->
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-6">Learning path map</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/30 p-5 transition-all" href="#modulo-1-1">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold text-sm">1.1</span><span class="text-xs text-neutral-500">~40 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-emerald-400 transition-colors">📈 The Turning Point</h3>
+<p class="text-xs text-neutral-400">The numbers don’t lie</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/30 p-5 transition-all" href="#modulo-1-2">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold text-sm">1.2</span><span class="text-xs text-neutral-500">~35 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-emerald-400 transition-colors">🤖 The Evolution of AI</h3>
+<p class="text-xs text-neutral-400">From tool to partner</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/30 p-5 transition-all" href="#modulo-1-3">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold text-sm">1.3</span><span class="text-xs text-neutral-500">~35 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-emerald-400 transition-colors">🏭 Evolution of Professions</h3>
+<p class="text-xs text-neutral-400">Every wave reshapes</p>
+</a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/30 p-5 transition-all" href="#modulo-1-4">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold text-sm">1.4</span><span class="text-xs text-neutral-500">~35 min</span></div>
+<h3 class="font-semibold mb-1 group-hover:text-emerald-400 transition-colors">🧑‍💻 Become an AI Person</h3>
+<p class="text-xs text-neutral-400">Time-limited advantage</p>
+</a>
+</div>
+</section>
+<h2 class="text-2xl font-bold mb-6">Detailed content</h2>
+<!-- MÓDULO 1.1 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="1-1" data-inema-track="1" id="modulo-1-1">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold">1.1</span><span class="text-xs text-neutral-500">~40 min</span></div>
+<h3 class="text-2xl font-bold mb-2">📈 The Turning Point: why now</h3>
+<p class="text-neutral-400 text-sm">The market data that explains why integrating AI into your profession is no longer optional.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button aria-controls="t-1-1-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🚀</span><div><span class="font-medium">AI adoption has exploded</span><span class="text-neutral-500 text-sm ml-2">- from curiosity to the norm</span></div></button>
+<div class="topic-explanation px-6 pb-4" id="t-1-1-1"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">The surge in generative AI use by companies and professionals in recent years.</p></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Shows that this isn't passing hype — it's the environment your career is already in.</p></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Adoption curve, use by role, from experiment to process.</p></div>
+</div></div>
+</div>
+<div class="topic-item">
+<button aria-controls="t-1-1-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">👔</span><div><span class="font-medium">What CEOs are saying</span><span class="text-neutral-500 text-sm ml-2">- every leader becomes technical</span></div></button>
+<div class="topic-explanation px-6 pb-4" id="t-1-1-2"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Leadership studies suggesting that every functional leader needs to become a technology specialist.</p></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Expectations of you have changed, regardless of your role.</p></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Pressure from above, AI across every vertical, not just the IT team.</p></div>
+</div></div>
+</div>
+<div class="topic-item">
+<button aria-controls="t-1-1-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">📊</span><div><span class="font-medium">Jobs: what changes by 2030</span><span class="text-neutral-500 text-sm ml-2">- created × eliminated</span></div></button>
+<div class="topic-explanation px-6 pb-4" id="t-1-1-3"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Projections of jobs created, eliminated, and transformed by AI.</p></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Separate the panic from the data: the balance is one of transformation, not just loss.</p></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Displacement, creation, reskilling, 2030 horizon.</p></div>
+</div></div>
+</div>
+<div class="topic-item">
+<button aria-controls="t-1-1-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">⚡</span><div><span class="font-medium">The real productivity gain</span><span class="text-neutral-500 text-sm ml-2">- studies with numbers</span></div></button>
+<div class="topic-explanation px-6 pb-4" id="t-1-1-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Productivity measurements with AI in support, coding, and writing.</p></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Shows how big the leap is that becomes your new baseline.</p></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Output per hour, a new baseline; those who use it outperform those who don’t.</p></div>
+</div></div>
+</div>
+<div class="topic-item">
+<button aria-controls="t-1-1-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">📚</span><div><span class="font-medium">Skills on the rise × in decline</span><span class="text-neutral-500 text-sm ml-2">- what the market demands</span></div></button>
+<div class="topic-explanation px-6 pb-4" id="t-1-1-5"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Skills rising and falling in demand according to market reports.</p></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Helps you invest your study time in what you value.</p></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">AI + data, critical thinking, adaptability.</p></div>
+</div></div>
+</div>
+<div class="topic-item">
+<button aria-controls="t-1-1-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">⏳</span><div><span class="font-medium">Why the window is now</span><span class="text-neutral-500 text-sm ml-2">- Excel’s advantage</span></div></button>
+<div class="topic-explanation px-6 pb-4" id="t-1-1-6"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">The analogy of someone who learned Excel first and became the go-to expert.</p></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">The advantage of getting in early has an expiration date—after that, it becomes the expectation.</p></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Early × late, the new normal, a temporary advantage.</p></div>
+</div></div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-1-1')">View in Modal</button>
+<a class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors" href="modulo-1-1.html">View Full</a>
+</div>
+</div>
+<!-- MÓDULO 1.2 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="1-2" data-inema-track="1" id="modulo-1-2">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold">1.2</span><span class="text-xs text-neutral-500">~35 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🤖 The Evolution of AI</h3>
+<p class="text-neutral-400 text-sm">From rule-based systems to an agent that works with you — the timeline that matters.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item"><button aria-controls="t-1-2-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">📟</span><div><span class="font-medium">Before LLMs</span><span class="text-neutral-500 text-sm ml-2">- rules and narrow ML</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-2-1"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Pre-2022 AI: specialized, narrow, and expensive to train.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Understanding the “before” shows how big the recent leap has been.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Rule-based systems, supervised ML, single task.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-2-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">💥</span><div><span class="font-medium">The ChatGPT turning point</span><span class="text-neutral-500 text-sm ml-2">- Nov/2022</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-2-2"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">The moment conversational AI reached everyone.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Marks the beginning of the era in which your profession will change.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Natural language, mass access, record adoption.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-2-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🖼️</span><div><span class="font-medium">From text to multimodal</span><span class="text-neutral-500 text-sm ml-2">- image, voice, video</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-2-3"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Models that understand and generate beyond text.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Expands where AI fits into your work.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Multimodality, media generation, long context.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-2-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🧰</span><div><span class="font-medium">From chatbot to tool</span><span class="text-neutral-500 text-sm ml-2">- enters the workflow</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-2-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">AI is moving from a toy into real work.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">This is where the ROI shows up in your routine.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Integration, plugins, workflow.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-2-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🦾</span><div><span class="font-medium">From tool to agent</span><span class="text-neutral-500 text-sm ml-2">- performs tasks</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-2-5"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Systems that reason, use tools, and complete tasks.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">It’s the foundation of your “Jarvis” in Track 3.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Agent, tools, controlled autonomy.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-2-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🔮</span><div><span class="font-medium">Where it’s going</span><span class="text-neutral-500 text-sm ml-2">- always-on partner</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-2-6"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">The direction: AI that runs in the background and anticipates your needs.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">You prepare for the next rung, not the previous one.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Always-on, proactive, a partner.</p></div></div></div></div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-1-2')">View in Modal</button>
+<a class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors" href="modulo-1-2.html">View Full</a>
+</div>
+</div>
+<!-- MÓDULO 1.3 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="1-3" data-inema-track="1" id="modulo-1-3">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold">1.3</span><span class="text-xs text-neutral-500">~35 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🏭 The Evolution of Professions</h3>
+<p class="text-neutral-400 text-sm">How each technological wave reshaped work—and what AI changes differently.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item"><button aria-controls="t-1-3-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🌊</span><div><span class="font-medium">Every wave reshapes work</span><span class="text-neutral-500 text-sm ml-2">- the pattern</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-3-1"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">The historical pattern: technology changes tasks; it doesn’t eliminate skilled professionals.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Takes away the fear and focuses on adaptation.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Waves, task displacement, adaptation.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-3-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📑</span><div><span class="font-medium">The spreadsheet case</span><span class="text-neutral-500 text-sm ml-2">- the accountant and Excel</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-3-2"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Those who refused Excel fell behind; those who adopted it multiplied their output.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">It's the best reflection of where AI is today.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">New baseline, costly refusal, multiplier.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-3-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🌐</span><div><span class="font-medium">Internet and mobile</span><span class="text-neutral-500 text-sm ml-2">- recent waves</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-3-3"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">How the internet and smartphones redefined entire professions.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Shows the pace: each wave is faster than the last.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">New roles, new media, acceleration.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-3-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🚄</span><div><span class="font-medium">What AI changes in a different way</span><span class="text-neutral-500 text-sm ml-2">- scale and speed</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-3-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">AI is like Excel, “but much bigger”—it affects more roles and does so faster.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">You don’t have the luxury of waiting another decade.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Breadth, speed, every vertical.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-3-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">⚖️</span><div><span class="font-medium">Tasks that move up × down</span><span class="text-neutral-500 text-sm ml-2">- what AI assumes</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-3-5"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Repetitive tasks move down; judgment, context, and relationships move up.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Shows where to move your value.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Task automation, human value, recomposition.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-3-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🧬</span><div><span class="font-medium">The AI-native version of every profession</span><span class="text-neutral-500 text-sm ml-2">- the bridge to Track 2</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-3-6"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Every profession gets an AI-native version—and you can be the one who defines it.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">It’s the thesis that Track 2 turns into a plan.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">AI-native, role redesign, opportunity.</p></div></div></div></div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-1-3')">View in Modal</button>
+<a class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors" href="modulo-1-3.html">View Full</a>
+</div>
+</div>
+<!-- MÓDULO 1.4 -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6" data-inema-module="1-4" data-inema-track="1" id="modulo-1-4">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2"><span class="text-emerald-400 font-bold">1.4</span><span class="text-xs text-neutral-500">~35 min</span></div>
+<h3 class="text-2xl font-bold mb-2">🧑‍💻 Become an AI Person</h3>
+<p class="text-neutral-400 text-sm">The first skill: become the AI go-to person in your circle—without changing careers.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item"><button aria-controls="t-1-4-1" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🎯</span><div><span class="font-medium">"AI person" is relative</span><span class="text-neutral-500 text-sm ml-2">- to your circle</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-4-1"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Know more than your group; you don't have to be the best in the world.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Takes away the excuse of "I don’t know enough".</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Relative, circle, local reference.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-4-2" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🚪</span><div><span class="font-medium">How this opens doors</span><span class="text-neutral-500 text-sm ml-2">- before the job title</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-4-2"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Opportunities come through referrals before a position even exists.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">More value without quitting your job.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">AI moments, recommendation, leadership.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-4-3" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🛠️</span><div><span class="font-medium">1 tool, get good at it</span><span class="text-neutral-500 text-sm ml-2">- depth</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-4-3"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Master a tool and deliver ROI with it.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Depth beats dispersion.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Focus, ROI, consistency.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-4-4" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🔁</span><div><span class="font-medium">1 workflow from your job</span><span class="text-neutral-500 text-sm ml-2">- AI-native version</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-4-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Pick a weekly task and redo it with AI.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Don’t change careers—find its AI-native version.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Repeatable, measurable workflow.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-4-5" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">📈</span><div><span class="font-medium">Document before and after</span><span class="text-neutral-500 text-sm ml-2">- becomes reputation</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-4-5"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Recording and showing the gains turns experimentation into a reputation.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Concrete evidence for job applications and promotions.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Before/after, showcase, portfolio.</p></div></div></div></div>
+<div class="topic-item"><button aria-controls="t-1-4-6" aria-expanded="false" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)"><span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🛡️</span><div><span class="font-medium">Be smart</span><span class="text-neutral-500 text-sm ml-2">- data, permission, rules</span></div></button><div class="topic-explanation px-6 pb-4" id="t-1-4-6"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9"><div><span class="text-emerald-400 font-semibold">What it is:</span><p class="text-neutral-300 text-sm">Use AI responsibly: data, permission, and regulation.</p></div><div><span class="text-emerald-400 font-semibold">Why learn:</span><p class="text-neutral-300 text-sm">Reputation is lost quickly with one mistake.</p></div><div><span class="text-emerald-400 font-semibold">Key concepts:</span><p class="text-neutral-300 text-sm">Privacy, permission, compliance.</p></div></div></div></div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-1-4')">View in Modal</button>
+<a class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors" href="modulo-1-4.html">View Full</a>
+</div>
+</div>
+<!-- NAV INFERIOR -->
+<div class="flex flex-col sm:flex-row gap-4 mt-10">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../../index.html">← Course home</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="../trilha2/index.html">Next track: Careers →</a>
+</div>
+</main>
+<!-- MODAIS (iframe) -->
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-1-1" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.1</span><span class="font-semibold">The Shift: Why Now</span></div><button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button></div><iframe class="flex-1 w-full rounded-b-xl" src="modulo-1-1.html" title="Module 1.1"></iframe></div></div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-1-2" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.2</span><span class="font-semibold">The Evolution of AI</span></div><button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button></div><iframe class="flex-1 w-full rounded-b-xl" src="modulo-1-2.html" title="Module 1.2"></iframe></div></div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-1-3" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.3</span><span class="font-semibold">The Evolution of Professions</span></div><button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button></div><iframe class="flex-1 w-full rounded-b-xl" src="modulo-1-3.html" title="Module 1.3"></iframe></div></div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-1-4" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.4</span><span class="font-semibold">Be the AI Person</span></div><button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button></div><iframe class="flex-1 w-full rounded-b-xl" src="modulo-1-4.html" title="Module 1.4"></iframe></div></div>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Integrate AI into your Profession — <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a> · 2026</p>
+</div>
+</footer>
+<script>
+    function toggleTopic(button){ const item=button.closest('.topic-item'); if(!item) return; const exp=item.querySelector('.topic-explanation'); const card=button.closest('.bg-dark-800'); if(card){ card.querySelectorAll('.topic-explanation.active').forEach(e=>{ if(e!==exp){ e.classList.remove('active'); const b=e.closest('.topic-item')?.querySelector('button'); b&&b.setAttribute('aria-expanded','false'); } }); } if(exp){ exp.classList.toggle('active'); button.setAttribute('aria-expanded', exp.classList.contains('active')?'true':'false'); } }
+    (function(){ const tt=document.getElementById('theme-toggle'); const d=document.getElementById('theme-toggle-dark-icon'); const l=document.getElementById('theme-toggle-light-icon'); const html=document.documentElement; function sync(){ if(html.classList.contains('dark')){ l&&l.classList.remove('hidden'); d&&d.classList.add('hidden'); } else { d&&d.classList.remove('hidden'); l&&l.classList.add('hidden'); } } sync(); tt&&tt.addEventListener('click',()=>{ html.classList.toggle('dark'); const dark=html.classList.contains('dark'); html.style.colorScheme=dark?'dark':'light'; localStorage.setItem('theme', dark?'dark':'light'); try{ if(window.INEMA&&INEMA.setPref) INEMA.setPref('theme', dark?'inema-dark':'claro'); }catch(e){} sync(); }); })();
+    function openModal(id){ const m=document.getElementById(id); if(m){ m.classList.remove('hidden'); document.body.style.overflow='hidden'; } }
+    function closeModal(){ document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden')); document.body.style.overflow='auto'; }
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+  </script>
+<script src="../../../assets/learn.js"></script>
+<script>if (window.INEMA && typeof window.INEMA.init === 'function') { window.INEMA.init(); }</script>
+</body>
+</html>

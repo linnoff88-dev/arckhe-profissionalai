@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="profissionalai" name="inema-course"/>
+<meta content="Curso gratuito INEMA.CLUB: integra tu profesión con la IA en 3 rutas — Fundamentos, Carreras y Avanzado. Las 6 habilidades que blindan tu carrera en la era de la IA." name="description"/>
+<title>Integra tu profesión con IA | INEMA.CLUB</title>
+<script>
+  (function () {
+    try {
+      var html = document.documentElement;
+      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+      function clone(o){var r={};for(var x in o)r[x]=o[x];return r;}
+      var p = clone(DEF);
+      try {
+        var raw = localStorage.getItem('inema.prefs');
+        if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object'){ for (var k in DEF) if (parsed[k]!=null) p[k]=parsed[k]; } }
+        else { var legacy = localStorage.getItem('theme'); if (legacy==='light') p.theme='claro'; else if (legacy==='dark') p.theme='inema-dark'; }
+      } catch(e){ p = clone(DEF); }
+      var THEMES = { 'inema-dark':{dark:true,attr:null,cs:'dark'},'claro':{dark:false,attr:null,cs:'light'},'sepia':{dark:false,attr:'sepia',cs:'light'},'foco':{dark:null,attr:'foco',cs:null},'contraste':{dark:true,attr:'contraste',cs:'dark'} };
+      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      if (t.dark===true) html.classList.add('dark'); else if (t.dark===false) html.classList.remove('dark');
+      if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
+      html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
+      html.setAttribute('data-font', p.font || 'inter');
+      html.setAttribute('data-accent', p.accent || 'emerald');
+      var s = html.style, scale = (+p.fontScale||100);
+      s.setProperty('--inema-font-scale', (scale/100).toString());
+      s.setProperty('font-size', scale + '%');
+      s.setProperty('--measure', (+p.lineWidth||68) + 'ch');
+      s.setProperty('--lh-body', (+p.leading||1.7).toString());
+      var fam = p.font==='system' ? 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' : (p.font==='leitura' ? '"Atkinson Hyperlegible", "Inter", system-ui, sans-serif' : '"Inter", system-ui, sans-serif');
+      s.setProperty('--font-body', fam);
+      var ACC = { emerald:[152,76,45], blue:[217,91,60], purple:[258,90,66], amber:[38,92,50], teal:[174,72,41], rose:[350,89,60] };
+      var a = ACC[p.accent] || ACC.emerald;
+      s.setProperty('--accent-h', a[0]+''); s.setProperty('--accent-s', a[1]+'%'); s.setProperty('--accent-l', a[2]+'%');
+      s.setProperty('--accent', 'hsl(' + a[0] + ' ' + a[1] + '% ' + a[2] + '%)');
+    } catch(err){ try{ document.documentElement.classList.add('dark'); document.documentElement.style.colorScheme='dark'; }catch(e){} }
+  })();
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563' } } } } }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/learn.css" rel="stylesheet"/>
+<script data-inema-manifest="" type="application/json">
+  {
+    "course": "profissionalai",
+    "tracks": [
+      { "n": "1", "title": "Fundamentos", "modules": [
+        { "id": "1-1", "title": "A Virada: por que agora", "topics": 6, "href": "curso/trilha1/modulo-1-1.html" },
+        { "id": "1-2", "title": "A Evolução da IA", "topics": 6, "href": "curso/trilha1/modulo-1-2.html" },
+        { "id": "1-3", "title": "A Evolução das Profissões", "topics": 6, "href": "curso/trilha1/modulo-1-3.html" },
+        { "id": "1-4", "title": "Seja a Pessoa de IA", "topics": 6, "href": "curso/trilha1/modulo-1-4.html" }
+      ]},
+      { "n": "2", "title": "Carreiras", "modules": [
+        { "id": "2-1", "title": "Diagnóstico da sua profissão", "topics": 6, "href": "curso/trilha2/modulo-2-1.html" },
+        { "id": "2-2", "title": "Acelere sua Produção com IA", "topics": 6, "href": "curso/trilha2/modulo-2-2.html" },
+        { "id": "2-3", "title": "Gosto & Critério", "topics": 6, "href": "curso/trilha2/modulo-2-3.html" },
+        { "id": "2-4", "title": "Blindagem & Múltiplas Rendas", "topics": 6, "href": "curso/trilha2/modulo-2-4.html" }
+      ]},
+      { "n": "3", "title": "Avançado: Especialistas de IA", "modules": [
+        { "id": "3-1", "title": "A Pirâmide da IA", "topics": 6, "href": "curso/trilha3/modulo-3-1.html" },
+        { "id": "3-2", "title": "Engenharia de Contexto & AI-OS", "topics": 6, "href": "curso/trilha3/modulo-3-2.html" },
+        { "id": "3-3", "title": "Agentic & Arquitetura de Intenção", "topics": 6, "href": "curso/trilha3/modulo-3-3.html" },
+        { "id": "3-4", "title": "Construa seu Jarvis", "topics": 6, "href": "curso/trilha3/modulo-3-4.html" }
+      ]}
+    ]
+  }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 5rem; }
+    .skip { position: absolute; left: -999px; top: 0; z-index: 100; }
+    .skip:focus { left: 1rem; top: 0.5rem; background: #059669; color: #fff; padding: .5rem .75rem; border-radius: .5rem; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* acentos das 3 trilhas (light) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .group:hover .group-hover\:text-blue-400 { color: #2563eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .group:hover .group-hover\:text-purple-400 { color: #7c3aed; }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+    html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
+
+    .dark .border-dark-600 { border-color: #374151; }
+    .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
+
+    @keyframes wf-pulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+    @media (prefers-reduced-motion: no-preference) {
+      .wf-a { animation: wf-pulse 2.6s ease-in-out infinite; }
+      .wf-a:nth-child(2){animation-delay:.25s} .wf-a:nth-child(3){animation-delay:.5s} .wf-a:nth-child(4){animation-delay:.75s} .wf-a:nth-child(5){animation-delay:1s}
+    }
+  </style>
+<link href="https://inematds.github.io/profissionalai/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/profissionalai/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/profissionalai/es/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="skip" href="#conteudo">Saltar al contenido</a>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-3">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="index.html"><span class="text-2xl">🧭</span><span class="font-bold text-lg hidden sm:inline">Integra tu profesión con IA</span></a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="curso/trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="curso/trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Trayectorias profesionales</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="curso/trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avanzado</span></a>
+<button class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 transition-colors text-sm" data-inema-journey-open="" title="Mi recorrido" type="button"><span aria-hidden="true">◷</span><span class="hidden lg:inline">Trayectoria</span><span class="inema-journey-badge hidden" data-count="0" data-inema-journey-badge=""></span></button>
+<div class="relative">
+<button aria-expanded="false" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" data-inema-appearance-toggle="[data-inema-appearance]" title="Apariencia y lectura" type="button"><span aria-hidden="true">◑</span></button>
+<div class="inema-appearance-pop" data-inema-appearance="">
+<div class="inema-segment"><button data-inema-set-theme="inema-dark">Oscuro</button><button data-inema-set-theme="claro">Claro</button><button data-inema-set-theme="sepia">Sepia</button><button data-inema-set-theme="foco">Enfoque</button><button data-inema-set-theme="contraste">Alto contraste</button></div>
+<div class="inema-segment"><button data-inema-set-font="inter">Inter</button><button data-inema-set-font="system">Sistema</button><button data-inema-set-font="leitura">Lectura</button></div>
+<div class="inema-segment"><button data-inema-set-fontscale="100">A</button><button data-inema-set-fontscale="112">A+</button><button data-inema-set-fontscale="125">A++</button></div>
+<div class="inema-segment"><button data-inema-set-linewidth="60">Estrecho</button><button data-inema-set-linewidth="68">Medio</button><button data-inema-set-linewidth="75">Amplio</button></div>
+<div class="inema-segment"><button data-inema-set-leading="1.45">Compacto</button><button data-inema-set-leading="1.7">Cómodo</button></div>
+<div class="inema-accent-grid"><button data-inema-set-accent="emerald"></button><button data-inema-set-accent="blue"></button><button data-inema-set-accent="purple"></button><button data-inema-set-accent="amber"></button><button data-inema-set-accent="teal"></button><button data-inema-set-accent="rose"></button></div>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle" title="Tema claro/oscuro">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main id="conteudo">
+<!-- HERO -->
+<header class="bg-gradient-to-br from-emerald-900/20 via-dark-900 to-dark-900 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+<a class="block mb-8" href="../assets/img/ia-todas-profissoes.png" rel="noopener" target="_blank"><img alt="IA en todas las profesiones: cómo la inteligencia artificial impacta diferentes áreas — ingeniería, educación, atención al cliente, datos, finanzas, gestión, tecnología, comunicación y más" class="w-full h-auto rounded-2xl border border-dark-600 shadow-xl" src="../assets/img/ia-todas-profissoes.png"/></a>
+<div class="mb-4"><a class="group inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-sm font-semibold hover:bg-emerald-500/20 transition-colors" href="promocao/">✨ Conoce la presentación inmersiva del curso <span class="group-hover:translate-x-1 transition-transform">→</span></a></div>
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary border border-primary/30 text-xs font-semibold rounded-full mb-5">Curso gratuito · INEMA.CLUB</span>
+<h1 class="text-4xl sm:text-5xl font-bold mb-5 leading-tight">Integra tu profesión con IA</h1>
+<p class="text-lg sm:text-xl text-neutral-400 max-w-3xl mb-8">La IA no se irá. En vez de cambiar de carrera, encuentra la <strong class="text-emerald-400">versión nativa de IA</strong> de la profesión que ya tienes. En 3 rutas y 6 habilidades, pasarás de espectador a <strong class="text-emerald-400">la persona de IA</strong> de tu equipo, y protege tu carrera.</p>
+<div class="flex flex-col sm:flex-row gap-4 mb-10">
+<a class="text-center px-7 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-semibold transition-colors" href="curso/trilha1/index.html">Empezar por la Ruta 1 →</a>
+<a class="text-center px-7 py-3 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors" href="#caminho">Ver el camino profesional</a>
+<button class="text-center px-7 py-3 bg-dark-800 border border-dark-600 hover:bg-dark-700 text-neutral-300 rounded-lg font-semibold transition-colors" data-inema-journey-open="" type="button">◷ Continuar desde donde lo dejé</button>
+</div>
+<div aria-label="Progreso del curso" aria-valuemax="100" aria-valuemin="0" class="bg-dark-800/60 border border-dark-600 rounded-xl p-4 max-w-xl" data-inema-meter="curso" role="progressbar">
+<div class="flex items-center justify-between mb-2 text-sm"><span class="text-neutral-400">Tu progreso en el curso</span><span><span class="inema-meter-count" data-inema-meter-frac="">0 de 72</span> · <span class="text-emerald-400 font-semibold" data-inema-meter-pct="">0%</span></span></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</div>
+</header>
+<!-- POR QUE AGORA -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="por-que">
+<h2 class="text-2xl sm:text-3xl font-bold mb-3">Por qué ahora: los números no mienten</h2>
+<p class="text-neutral-400 max-w-3xl mb-8">Cuando llegó Excel, quienes insistieron en el papel se quedaron atrás; quienes lo adoptaron se convirtieron en referentes. La IA es como Excel, pero mucho más grande: alcanza todas las funciones al mismo tiempo.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6"><div class="text-3xl font-bold text-emerald-400 mb-1">78%</div><p class="text-sm text-neutral-300 mb-2">de las organizaciones ya usaban IA en 2024 (eran 55% en 2023).</p><p class="text-xs text-neutral-500">Stanford AI Index, 2025</p></div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6"><div class="text-3xl font-bold text-blue-400 mb-1">+78 mi</div><p class="text-sm text-neutral-300 mb-2">de empleos netos hasta 2030 (170 mi creados, 92 mi eliminados).</p><p class="text-xs text-neutral-500">WEF Future of Jobs, 2025</p></div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6"><div class="text-3xl font-bold text-purple-400 mb-1">39%</div><p class="text-sm text-neutral-300 mb-2">de las habilidades clave cambiarán hasta 2030.</p><p class="text-xs text-neutral-500">WEF Future of Jobs, 2025</p></div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6"><div class="text-3xl font-bold text-primary mb-1">+34%</div><p class="text-sm text-neutral-300 mb-2">de productividad para principiantes en soporte con IA (y hasta 55% más rápido en código).</p><p class="text-xs text-neutral-500">NBER, 2023 · GitHub Copilot</p></div>
+</div>
+</section>
+<!-- AS 6 HABILIDADES -->
+<section class="bg-dark-800/30 border-y border-dark-600" id="habilidades">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<h2 class="text-2xl sm:text-3xl font-bold mb-3">Las 6 habilidades</h2>
+<p class="text-neutral-400 max-w-3xl mb-8">La columna vertebral del curso. Seis habilidades que se aplican a cualquier puesto, distribuidas en las 3 rutas. Haz clic para ir directamente a la habilidad.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/30 p-6 transition-all" href="curso/trilha1/modulo-1-4.html"><div class="text-2xl mb-2">🧑‍💻</div><h3 class="font-semibold mb-1 group-hover:text-emerald-400 transition-colors">1 · Sé la Persona de IA</h3><p class="text-sm text-neutral-400">Conviértete en referente de tu círculo, sin cambiar de carrera.</p></a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-6 transition-all" href="curso/trilha2/modulo-2-3.html"><div class="text-2xl mb-2">🎨</div><h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">2 · Gusto y criterio</h3><p class="text-sm text-neutral-400">Decidir qué merece llevar tu nombre — no confiar en el primer resultado.</p></a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-6 transition-all" href="curso/trilha3/modulo-3-2.html"><div class="text-2xl mb-2">🧠</div><h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">3 · Ingeniería de contexto</h3><p class="text-sm text-neutral-400">El prompt es cómo pides; el contexto es lo que sabe la IA.</p></a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-6 transition-all" href="curso/trilha2/modulo-2-2.html"><div class="text-2xl mb-2">⚡</div><h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">4 · Velocidad de iteración</h3><p class="text-sm text-neutral-400">Quien itera más rápido sin perder calidad, gana.</p></a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-6 transition-all" href="curso/trilha3/modulo-3-4.html"><div class="text-2xl mb-2">🤵</div><h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">5 · Construye tu Jarvis</h3><p class="text-sm text-neutral-400">Agente × workflow: sistemas que funcionan solos a tu favor.</p></a>
+<a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-6 transition-all" href="curso/trilha2/modulo-2-4.html"><div class="text-2xl mb-2">🛡️</div><h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">6 · Protección y múltiples ingresos</h3><p class="text-sm text-neutral-400">Tu póliza: varias fuentes de ingresos a partir de una sola pasión.</p></a>
+</div>
+</div>
+</section>
+<!-- BANNER (meio) -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<a class="block" href="../assets/img/blindar-carreira.png" rel="noopener" target="_blank">
+<img alt="6 habilidades de IA para blindar tu carrera: de una carrera vulnerable a una carrera protegida — persona de la IA, criterio, contexto, iteración, Jarvis, seguridad" class="w-full h-auto rounded-2xl border border-dark-600 shadow-xl" loading="lazy" src="../assets/img/blindar-carreira.png"/>
+</a>
+</section>
+<!-- AS 3 TRILHAS -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="trilhas">
+<h2 class="text-2xl sm:text-3xl font-bold mb-3">Las 3 rutas</h2>
+<p class="text-neutral-400 max-w-3xl mb-8">Del terreno a la práctica y al dominio avanzado. 12 módulos, 72 temas, ~7h30.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<a class="group bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-7 transition-all hover:-translate-y-0.5" href="curso/trilha1/index.html">
+<div class="flex items-center justify-between mb-3"><span class="text-3xl">🌍</span>
+<div aria-label="Progreso de la ruta Fundamentos" aria-valuemax="100" aria-valuemin="0" class="inema-ring" data-inema-meter="trilha:1" role="progressbar"><span class="inema-ring__value" data-inema-meter-pct="">0%</span><svg viewbox="0 0 36 36"><circle cx="18" cy="18" data-inema-ring="" r="16"></circle></svg></div>
+</div>
+<h3 class="text-xl font-bold mb-2 text-emerald-400">Ruta 1 · Fundamentos</h3>
+<p class="text-sm text-neutral-300 mb-4">Datos de mercado, la evolución de la IA y de las profesiones, y la habilidad de convertirte en la persona de IA.</p>
+<p class="text-xs text-neutral-500">4 módulos · 24 temas · ~2h30</p>
+</a>
+<a class="group bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-7 transition-all hover:-translate-y-0.5" href="curso/trilha2/index.html">
+<div class="flex items-center justify-between mb-3"><span class="text-3xl">💼</span>
+<div aria-label="Progreso de la ruta Carreras" aria-valuemax="100" aria-valuemin="0" class="inema-ring" data-inema-meter="trilha:2" role="progressbar"><span class="inema-ring__value" data-inema-meter-pct="">0%</span><svg viewbox="0 0 36 36"><circle cx="18" cy="18" data-inema-ring="" r="16"></circle></svg></div>
+</div>
+<h3 class="text-xl font-bold mb-2 text-blue-400">Ruta 2 · Carreras</h3>
+<p class="text-sm text-neutral-300 mb-4">Diagnóstico, aceleración de la producción, gusto y criterio, y protección con múltiples fuentes de ingresos.</p>
+<p class="text-xs text-neutral-500">4 módulos · 24 temas · ~2h30</p>
+</a>
+<a class="group bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-7 transition-all hover:-translate-y-0.5" href="curso/trilha3/index.html">
+<div class="flex items-center justify-between mb-3"><span class="text-3xl">🚀</span>
+<div aria-label="Progreso de la ruta Avanzado" aria-valuemax="100" aria-valuemin="0" class="inema-ring" data-inema-meter="trilha:3" role="progressbar"><span class="inema-ring__value" data-inema-meter-pct="">0%</span><svg viewbox="0 0 36 36"><circle cx="18" cy="18" data-inema-ring="" r="16"></circle></svg></div>
+</div>
+<h3 class="text-xl font-bold mb-2 text-purple-400">Ruta 3 · Avanzado</h3>
+<p class="text-sm text-neutral-300 mb-4">La pirámide prompt → vibe code → contexto → agentic → arquitectura, la intención y tu Jarvis.</p>
+<p class="text-xs text-neutral-500">4 módulos · 24 temas · ~2h40</p>
+</a>
+</div>
+</section>
+<!-- PROFISSIONAL COM IA — A JORNADA (3 estágios) -->
+<section class="bg-dark-800/30 border-y border-dark-600" id="profissional-ia">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary border border-primary/30 text-xs font-semibold rounded-full mb-4">Ruta · Profesional con IA</span>
+<h2 class="text-2xl sm:text-3xl font-bold mb-3">Continúa el recorrido: de espectador a especialista</h2>
+<p class="text-neutral-400 max-w-3xl mb-8">Después de los fundamentos, estos cursos de <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a> te llevan más lejos, en 3 etapas: del despertar al liderazgo.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- ESTÁGIO 1 · DESPERTAR -->
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+<div class="text-xs font-bold tracking-widest text-emerald-400 mb-1">ETAPA 01</div>
+<h3 class="text-lg font-bold mb-1 text-emerald-400">Despertar</h3>
+<p class="text-sm text-neutral-400 mb-4">Integrar la IA en la profesión que ya tienes.</p>
+<div class="divide-y divide-dark-700">
+<span class="flex items-center gap-2 py-2 text-sm text-neutral-500"><span aria-hidden="true">🧭</span><span>Integra tu profesión con IA</span><span class="ml-auto text-[11px] text-emerald-400/70 whitespace-nowrap">estás aquí</span></span>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-emerald-400 transition-colors" href="https://inematds.github.io/pha2030-aula/" rel="noopener" target="_blank"><span aria-hidden="true">🎯</span><span>PHA 2030 — De la Capacitación a la Transformación</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-emerald-400 transition-colors" href="https://inematds.github.io/ATIA/" rel="noopener" target="_blank"><span aria-hidden="true">🤖</span><span>ATIA — Oportunidades Digitales con IA</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-emerald-400 transition-colors" href="https://inematds.github.io/intelecto-curso/" rel="noopener" target="_blank"><span aria-hidden="true">🧠</span><span>INTELECTO — De cero a experto en IA</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+</div>
+</div>
+<!-- ESTÁGIO 2 · IMPLEMENTAR -->
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+<div class="text-xs font-bold tracking-widest text-blue-400 mb-1">ETAPA 02</div>
+<h3 class="text-lg font-bold mb-1 text-blue-400">Implementar</h3>
+<p class="text-sm text-neutral-400 mb-4">Convertirte en quien produce e implementa con IA.</p>
+<div class="divide-y divide-dark-700">
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-blue-400 transition-colors" href="https://inematds.github.io/profissional2027x/" rel="noopener" target="_blank"><span aria-hidden="true">🎯</span><span>Profesional 2027 — Implementadores para pymes</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-blue-400 transition-colors" href="https://inematds.github.io/prof2030/" rel="noopener" target="_blank"><span aria-hidden="true">🧬</span><span>Prof2030 — El profesional del futuro</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-blue-400 transition-colors" href="https://inematds.github.io/fae-ai/" rel="noopener" target="_blank"><span aria-hidden="true">⚙️</span><span>Automatización estratégica con IA</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+</div>
+</div>
+<!-- ESTÁGIO 3 · LIDERAR & MONETIZAR -->
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+<div class="text-xs font-bold tracking-widest text-purple-400 mb-1">ETAPA 03</div>
+<h3 class="text-lg font-bold mb-1 text-purple-400">Liderar y monetizar</h3>
+<p class="text-sm text-neutral-400 mb-4">Consultor, CAIO y certificación.</p>
+<div class="divide-y divide-dark-700">
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-purple-400 transition-colors" href="https://inematds.github.io/caio/" rel="noopener" target="_blank"><span aria-hidden="true">💼</span><span>CAIO — Chief AI Officer 2030</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-purple-400 transition-colors" href="https://inematds.github.io/prof2031CAIP/" rel="noopener" target="_blank"><span aria-hidden="true">🎓</span><span>CAIP — Certified AI Professional</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-purple-400 transition-colors" href="https://inematds.github.io/consultoria2k/" rel="noopener" target="_blank"><span aria-hidden="true">🧭</span><span>Consultor de IA: de la etiqueta al resultado</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+<a class="group flex items-center gap-2 py-2 text-sm text-neutral-300 hover:text-purple-400 transition-colors" href="https://inematds.github.io/aiestrategia/" rel="noopener" target="_blank"><span aria-hidden="true">🏭</span><span>Fábrica de Estrategia de IA — Conviértete en consultor</span><span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">→</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- O CAMINHO DE CARREIRA -->
+<section class="bg-dark-800/30 border-y border-dark-600" id="caminho">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<h2 class="text-2xl sm:text-3xl font-bold mb-3">El camino profesional</h2>
+<p class="text-neutral-400 max-w-3xl mb-8">Tres pasos para pasar de "uso la IA a veces" a "mi carrera está integrada con IA". El curso te guía a través de ellos.</p>
+<div class="rounded-2xl border border-emerald-500/30 bg-dark-900/40 p-3 sm:p-4 mb-10 overflow-hidden">
+<svg aria-label="Trayectoria profesional: el diagnóstico lleva a la integración de la IA, luego al plan 30-60-90 y a la protección" class="w-full h-auto" role="img" viewbox="0 0 1000 200">
+<defs>
+<lineargradient id="lp-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#34d399"></stop><stop offset="1" stop-color="#10b981"></stop></lineargradient>
+<filter height="180%" id="lp-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
+<pattern height="32" id="lp-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#10b981" opacity="0.12" r="1.3"></circle></pattern>
+<marker id="lp-ah" markerheight="9" markerwidth="9" orient="auto" refx="6.5" refy="4.5"><path d="M0,0 L8,4.5 L0,9 L2.4,4.5 Z" fill="#34d399"></path></marker>
+</defs>
+<rect fill="url(#lp-grid)" height="200" width="1000" x="0" y="0"></rect>
+<g fill="none" opacity="0.55" stroke="#34d399" stroke-width="1.8"><path d="M250,100 L300,100" marker-end="url(#lp-ah)"></path><path d="M530,100 L580,100" marker-end="url(#lp-ah)"></path></g>
+<g class="wf-a"><rect fill="#0e2018" height="68" rx="14" stroke="#34d399" stroke-width="2" width="210" x="40" y="66"></rect><text fill="#34d399" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="145" y="96">1 · Diagnóstico</text><text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="145" y="117">versión nativa de IA</text></g>
+<g class="wf-a"><rect fill="#0e1622" height="68" rx="14" stroke="#38bdf8" stroke-width="2" width="230" x="300" y="66"></rect><text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="415" y="96">2 · Plan 30-60-90</text><text fill="#9ad6ff" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="415" y="117">aprender · medir · escalar</text></g>
+<g filter="url(#lp-glow)"><rect fill="#0e2018" height="76" rx="14" stroke="url(#lp-grad)" stroke-width="2.5" width="380" x="580" y="62"></rect></g>
+<text fill="#34d399" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="770" y="94">3 · Protección y múltiples ingresos</text>
+<text fill="#a7f3d0" font-family="Inter,sans-serif" font-size="12" text-anchor="middle" x="770" y="116">carrera integrada y protegida</text>
+</svg>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6"><div class="text-emerald-400 font-bold mb-2">1 · Diagnóstico</div><p class="text-sm text-neutral-300">Identifica tus tareas, separa el juicio de lo repetible y elige 1 objetivo con una métrica clara. <a class="text-emerald-400 hover:underline" href="curso/trilha2/modulo-2-1.html">Módulo 2.1 →</a></p></div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6"><div class="text-blue-400 font-bold mb-2">2 · Plan 30-60-90</div><p class="text-sm text-neutral-300">0-30: 1 herramienta + 1 workflow. 31-60: medir y mostrar. 61-90: escalar y abrir 1 rama. <a class="text-blue-400 hover:underline" href="curso/trilha2/modulo-2-4.html">Módulo 2.4 →</a></p></div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6"><div class="text-purple-400 font-bold mb-2">3 · Protección</div><p class="text-sm text-neutral-300">Múltiples fuentes de ingresos a partir de una pasión + tu Jarvis trabajando en segundo plano. <a class="text-purple-400 hover:underline" href="curso/trilha3/modulo-3-4.html">Módulo 3.4 →</a></p></div>
+</div>
+</div>
+</section>
+<!-- BAIXAR / COMPARTILHAR -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="baixar">
+<div class="bg-gradient-to-br from-primary/10 to-dark-800 rounded-2xl border border-primary/30 p-8">
+<h2 class="text-2xl sm:text-3xl font-bold mb-3">Comparte y descarga</h2>
+<p class="text-neutral-300 max-w-3xl mb-6">El curso es <strong>self-contained</strong>: funciona sin conexión, al abrir los archivos en el navegador. Tu recorrido (progreso, dudas, anotaciones) queda guardado en tu navegador y se puede exportar en <strong>Mi recorrido → Exportar</strong>. Descarga la guía de acción y lleva el camino contigo.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="text-center px-6 py-3 bg-primary text-dark-900 rounded-lg font-semibold hover:bg-yellow-300 transition-colors" href="guia-de-acao.html">⬇️ Descargar la guía de acción</a>
+<a class="text-center px-6 py-3 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors" href="https://github.com/inematds/profissionalai" target="_blank">Ver en GitHub (clonar / descargar .zip)</a>
+<button class="text-center px-6 py-3 bg-dark-800 border border-dark-600 hover:bg-dark-700 text-neutral-300 rounded-lg font-semibold transition-colors" data-inema-journey-open="" type="button">◷ Mi recorrido</button>
+</div>
+</div>
+</section>
+<!-- INFOGRÁFICO (final) -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20" id="infografico">
+<h2 class="text-2xl sm:text-3xl font-bold mb-3 text-center">Las 6 habilidades en un cuadro</h2>
+<p class="text-neutral-400 text-center max-w-2xl mx-auto mb-8">El resumen visual del curso. Toca para ampliar: guarda, imprime o comparte.</p>
+<div class="flex justify-center">
+<a class="block w-full max-w-md" href="../assets/img/6-habilidades.png" rel="noopener" target="_blank">
+<img alt="Infografía de las 6 habilidades de IA para blindar tu carrera: 1 Sé la persona de IA, 2 Gusto y criterio, 3 Ingeniería de contexto, 4 Velocidad de iteración, 5 Construye tu propio Jarvis, 6 Tu seguridad frente al desempleo" class="w-full h-auto rounded-2xl border border-dark-600 shadow-xl" loading="lazy" src="../assets/img/6-habilidades.png"/>
+</a>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-10">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p class="mb-2">Integra tu profesión con IA — curso abierto de <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a></p>
+<p>© 2026 · Contenido educativo. Datos atribuidos a las fuentes citadas (WEF, Stanford AI Index, IBM, NBER).</p>
+</div>
+<!-- inema-backlink:v1 -->
+<p style="display:block;width:100%;text-align:center;font-size:.85rem;margin:.75rem 0 0;opacity:.85"><a href="https://www.inema.club/cursos/161-integra-sua-profissao-com-ia/" style="color:inherit;text-decoration:underline">Ficha completa de este curso en INEMA.CLUB</a> · <a href="https://www.inema.club/aprender-inteligencia-artificial/" style="color:inherit;text-decoration:underline">Guía: cómo aprender inteligencia artificial</a></p>
+<!-- /inema-backlink:v1 -->
+</footer>
+<script>
+    function toggleTopic(button){ const item=button.closest('.topic-item'); if(!item) return; const exp=item.querySelector('.topic-explanation'); if(exp){ exp.classList.toggle('active'); button.setAttribute('aria-expanded', exp.classList.contains('active')?'true':'false'); } }
+    (function(){ const tt=document.getElementById('theme-toggle'); const d=document.getElementById('theme-toggle-dark-icon'); const l=document.getElementById('theme-toggle-light-icon'); const html=document.documentElement; function sync(){ if(html.classList.contains('dark')){ l&&l.classList.remove('hidden'); d&&d.classList.add('hidden'); } else { d&&d.classList.remove('hidden'); l&&l.classList.add('hidden'); } } sync(); tt&&tt.addEventListener('click',()=>{ html.classList.toggle('dark'); const dark=html.classList.contains('dark'); html.style.colorScheme=dark?'dark':'light'; localStorage.setItem('theme', dark?'dark':'light'); try{ if(window.INEMA&&INEMA.setPref) INEMA.setPref('theme', dark?'inema-dark':'claro'); }catch(e){} sync(); }); })();
+    function openModal(id){ const m=document.getElementById(id); if(m){ m.classList.remove('hidden'); document.body.style.overflow='hidden'; } }
+    function closeModal(){ document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden')); document.body.style.overflow='auto'; }
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+  </script>
+<script src="../assets/learn.js"></script>
+<script>if (window.INEMA && typeof window.INEMA.init === 'function') { window.INEMA.init(); }</script>
+</body>
+</html>

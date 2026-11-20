@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integra sua Profissão com IA — INEMA.CLUB</title>
+<meta content="A IA não vai embora. Encontre a versão IA-nativa da profissão que você já tem. 3 trilhas, 6 habilidades, 12 módulos. Curso gratuito do INEMA.CLUB." name="description"/>
+<meta content="Integra sua Profissão com IA — INEMA.CLUB" property="og:title"/>
+<meta content="De espectador a 'a pessoa de IA' do seu time. 3 trilhas, 6 habilidades. Curso gratuito." property="og:description"/>
+<meta content="../assets/img/ia-todas-profissoes.png" property="og:image"/>
+<meta content="#070b12" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#070b12;
+  --bg-2:#0b1019;
+  --panel:#0e1420;
+  --ice:#b6bac5;
+  --ice-dim:#8a93a8;
+  --line:rgba(182,186,197,.12);
+  --line-2:rgba(182,186,197,.22);
+  --fg:#eef1f7;
+  --fg-soft:#c3cad8;
+  --emerald:#34d399;
+  --sky:#38bdf8;
+  --purple:#a78bfa;
+  --amber:#fbbf24;
+  --display:"Archivo",sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.6;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body.loading{overflow:hidden;height:100vh}
+::selection{background:var(--emerald);color:#03130c}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ============ ATMOSPHERE ============ */
+.atmos{position:fixed;inset:0;z-index:0;pointer-events:none}
+.atmos .grid{position:absolute;inset:0;
+  background-image:
+    linear-gradient(to right,rgba(182,186,197,.05) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(182,186,197,.05) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 22%,#000 28%,transparent 76%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 22%,#000 28%,transparent 76%);}
+.atmos .aurora{position:absolute;left:50%;top:-12%;width:130vw;height:92vh;transform:translateX(-50%);
+  background:
+    radial-gradient(closest-side at 30% 40%,rgba(52,211,153,.16),transparent 70%),
+    radial-gradient(closest-side at 70% 35%,rgba(56,189,248,.15),transparent 70%),
+    radial-gradient(closest-side at 50% 62%,rgba(167,139,250,.12),transparent 72%);
+  filter:blur(28px);animation:drift 28s ease-in-out infinite alternate;}
+@keyframes drift{0%{transform:translateX(-50%) translateY(0) scale(1)}100%{transform:translateX(-47%) translateY(2.5%) scale(1.08)}}
+.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* ============ LOADER ============ */
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.4rem;
+  transition:opacity .8s var(--ease),visibility .8s;}
+#loader.done{opacity:0;visibility:hidden}
+.loader-mark{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--ice-dim)}
+.loader-bar{width:min(220px,46vw);height:2px;background:var(--line-2);overflow:hidden;border-radius:2px}
+.loader-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--emerald),var(--sky));animation:load 1.6s var(--ease) forwards;transform-origin:left}
+@keyframes load{0%{width:0}60%{width:72%}100%{width:100%}}
+
+/* ============ PROGRESS + NAV ============ */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:80;background:linear-gradient(90deg,var(--emerald),var(--sky),var(--purple))}
+nav{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:center;justify-content:space-between;
+  padding:1rem clamp(1rem,4vw,2.6rem);transition:background .4s var(--ease),border-color .4s var(--ease);
+  border-bottom:1px solid transparent;}
+nav.solid{background:rgba(7,11,18,.74);backdrop-filter:blur(14px);border-color:var(--line)}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.04em}
+.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 12px var(--emerald)}
+.brand .sep{color:var(--ice-dim);opacity:.5;font-weight:400}
+.brand a.club{color:var(--sky)}
+.nav-links{display:flex;align-items:center;gap:.3rem}
+.nav-links a{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ice-dim);padding:.55rem .85rem;border-radius:99px;transition:color .25s,background .25s}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a.cta{color:#03130c;background:var(--emerald);font-weight:700;letter-spacing:.06em}
+.nav-links a.cta:hover{background:#5be0ad}
+@media(max-width:680px){.nav-links a.ghost{display:none}}
+
+/* ============ LAYOUT ============ */
+main{position:relative;z-index:1}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.2rem,5vw,2.6rem)}
+.kicker{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ice-dim)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1;letter-spacing:-.02em}
+.section{padding:clamp(5rem,12vh,8.5rem) 0;position:relative}
+.section-h{font-size:clamp(2.1rem,6vw,4.4rem);max-width:16ch}
+.section-lead{color:var(--fg-soft);max-width:54ch;margin-top:1.2rem;font-size:clamp(1rem,1.5vw,1.18rem)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.07s}.reveal[data-d="2"]{transition-delay:.14s}
+.reveal[data-d="3"]{transition-delay:.21s}.reveal[data-d="4"]{transition-delay:.28s}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;padding-top:6rem;padding-bottom:5rem}
+.hero .orb{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);
+  width:min(620px,92vw);height:min(620px,92vw);z-index:-1;pointer-events:none;opacity:.9}
+.hero .orb .glow{position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%,rgba(56,189,248,.16),rgba(52,211,153,.07) 46%,transparent 64%);
+  filter:blur(10px);animation:pulse 7s ease-in-out infinite}
+.hero .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line-2);
+  mask:linear-gradient(#000,transparent 82%);-webkit-mask:linear-gradient(#000,transparent 82%)}
+.hero .ring.r2{inset:13%;border-color:var(--line)}
+.hero .ring.r3{inset:27%;border-color:var(--line)}
+.hero .ring.spin{inset:6%;border-style:dashed;border-color:rgba(182,186,197,.10);animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+.badge{display:inline-flex;align-items:center;gap:.6rem;align-self:flex-start;
+  font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--fg-soft);border:1px solid var(--line-2);border-radius:99px;padding:.5rem 1rem;margin-bottom:2rem;
+  background:rgba(11,16,25,.5);opacity:0;transform:translateY(14px);transition:.8s var(--ease) .35s}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);box-shadow:0 0 10px var(--emerald)}
+.hero.ready .badge{opacity:1;transform:none}
+.hero h1{font-size:clamp(3rem,11.5vw,9.5rem);font-weight:900;max-width:13ch}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln > span{display:block;transform:translateY(110%);transition:transform 1.05s var(--ease)}
+.hero.ready h1 .ln > span{transform:none}
+.hero h1 .ln:nth-child(2) > span{transition-delay:.09s}
+.hero h1 .ln:nth-child(3) > span{transition-delay:.18s}
+.hero h1 em{font-style:normal;color:var(--emerald)}
+.hero .sub{max-width:46ch;color:var(--fg-soft);font-size:clamp(1rem,1.7vw,1.22rem);margin-top:1.8rem;line-height:1.65;
+  opacity:0;transform:translateY(20px);transition:.9s var(--ease) .5s}
+.hero.ready .sub{opacity:1;transform:none}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.4rem;opacity:0;transform:translateY(20px);transition:.9s var(--ease) .62s}
+.hero.ready .actions{opacity:1;transform:none}
+
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:600;font-size:.85rem;letter-spacing:.02em;
+  padding:.95rem 1.5rem;border-radius:99px;border:1px solid var(--line-2);transition:background .28s var(--ease),border-color .28s var(--ease),color .28s var(--ease)}
+.btn .arr{transition:transform .28s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-primary{background:var(--emerald);color:#03130c;border-color:transparent;font-weight:700}
+.btn-primary:hover{background:#5be0ad}
+.btn-ghost{color:var(--fg-soft)}
+.btn-ghost:hover{border-color:var(--ice-dim);color:var(--fg);background:rgba(182,186,197,.05)}
+
+.scrollcue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  font-family:var(--display);font-weight:600;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ice-dim);
+  opacity:0;transition:.8s var(--ease) 1s}
+.hero.ready .scrollcue{opacity:1}
+.scrollcue .bar{width:1px;height:42px;background:linear-gradient(var(--ice-dim),transparent);position:relative;overflow:hidden}
+.scrollcue .bar::after{content:"";position:absolute;top:0;left:0;width:100%;height:40%;background:var(--emerald);animation:cue 2s var(--ease) infinite}
+@keyframes cue{0%{transform:translateY(-100%)}100%{transform:translateY(280%)}}
+
+/* ============ MANIFESTO + LEDGER ============ */
+.big{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6.4vw,5.2rem);line-height:1.04;letter-spacing:-.02em;max-width:17ch}
+.big .muted{color:var(--ice-dim)}
+.big .hl{color:var(--emerald)}
+.ledger{margin-top:3.4rem;border-top:1px solid var(--line-2)}
+.lrow{display:grid;grid-template-columns:minmax(6.5rem,8.5rem) 1fr minmax(0,12rem);gap:1rem 2rem;align-items:center;
+  padding:1.7rem 0;border-bottom:1px solid var(--line)}
+.lrow .lnum{font-family:var(--display);font-weight:800;font-size:clamp(2.3rem,5vw,3.6rem);line-height:.9;letter-spacing:-.03em}
+.lrow .ltxt{color:var(--fg-soft);font-size:clamp(1rem,1.45vw,1.18rem);max-width:46ch}
+.lrow .ltxt b{color:var(--fg);font-weight:600}
+.lrow .lsrc{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.04em;color:var(--ice-dim);text-align:right}
+.lrow:nth-child(1) .lnum{color:var(--emerald)}.lrow:nth-child(2) .lnum{color:var(--sky)}
+.lrow:nth-child(3) .lnum{color:var(--purple)}.lrow:nth-child(4) .lnum{color:var(--amber)}
+@media(max-width:680px){
+  .lrow{grid-template-columns:auto 1fr;gap:.4rem 1.2rem}
+  .lrow .lnum{grid-row:span 2}
+  .lrow .lsrc{grid-column:2;text-align:left}
+}
+
+/* ============ PLATE (image sections) ============ */
+.plate{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;padding:clamp(4rem,9vh,7rem) 0}
+.plate.flip .plate-fig{order:-1}
+.plate-fig{margin:0;position:relative}
+.plate-fig img{width:100%;height:auto;max-height:82vh;width:auto;max-width:100%;margin-inline:auto;
+  border-radius:16px;border:1px solid var(--line-2);box-shadow:0 30px 80px rgba(0,0,0,.5);cursor:zoom-in}
+.plate-fig figcaption{font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ice-dim);margin-top:1rem;text-align:center}
+.plate-copy h3{font-size:clamp(1.7rem,3.8vw,2.9rem);max-width:16ch}
+.plate-copy p{color:var(--fg-soft);max-width:46ch;margin-top:1.1rem;font-size:clamp(1rem,1.45vw,1.15rem)}
+.plate-copy .accent-em{color:var(--emerald)}.plate-copy .accent-sk{color:var(--sky)}.plate-copy .accent-am{color:var(--amber)}
+.zoom{margin-top:1.6rem;display:inline-flex;align-items:center;gap:.5rem;background:none;border:0;cursor:pointer;
+  font-family:var(--display);font-weight:600;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ice);
+  border-bottom:1px solid var(--line-2);padding:0 0 .3rem}
+.zoom:hover{color:var(--emerald);border-color:var(--emerald)}
+@media(max-width:820px){.plate{grid-template-columns:1fr;gap:2rem}.plate.flip .plate-fig{order:0}.plate-copy{order:-1}}
+
+/* ============ SKILLS INDEX ============ */
+.skills{margin-top:3rem;border-top:1px solid var(--line-2)}
+.skill{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.6rem;
+  padding:1.7rem .2rem;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.skill .idx{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:-.03em;color:var(--ice-dim);min-width:2.6rem;transition:color .3s}
+.skill .sbody h3{font-size:clamp(1.3rem,3vw,2rem);font-weight:700;transition:transform .35s var(--ease),color .3s}
+.skill .sbody p{color:var(--ice-dim);font-size:.97rem;margin-top:.35rem;max-width:60ch;transition:color .3s}
+.skill .arr{font-family:var(--display);font-weight:600;color:var(--ice-dim);opacity:0;transform:translateX(-8px);transition:opacity .3s var(--ease),transform .3s var(--ease),color .3s}
+.skill::before{content:"";position:absolute;left:0;top:0;bottom:0;width:100%;
+  background:linear-gradient(90deg,rgba(52,211,153,.10),transparent 80%);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);pointer-events:none;z-index:-1}
+.skill:hover::before{transform:scaleX(1)}
+.skill:hover .idx{color:var(--emerald)}
+.skill:hover .sbody h3{transform:translateX(8px);color:var(--emerald)}
+.skill:hover .sbody p{color:var(--fg-soft)}
+.skill:hover .arr{opacity:1;transform:none;color:var(--emerald)}
+
+/* ============ TRILHAS ============ */
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:3rem}
+.track{position:relative;border:1px solid var(--line);border-radius:20px;padding:2rem 1.8rem 2.1rem;
+  background:linear-gradient(180deg,var(--bg-2),var(--bg));overflow:hidden;transition:transform .4s var(--ease),border-color .4s}
+.track::before{content:"";position:absolute;inset:0;opacity:.6;pointer-events:none;background:radial-gradient(120% 55% at 50% -12%,var(--c-glow),transparent 70%)}
+.track:hover{transform:translateY(-6px);border-color:var(--c-line)}
+.track .tnum{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,5vw,3.4rem);line-height:.85;letter-spacing:-.04em;color:var(--c)}
+.track .tname{font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ice-dim);margin-top:.9rem}
+.track h3{font-size:1.55rem;font-weight:800;color:var(--c);margin-top:.2rem}
+.track p{color:var(--fg-soft);font-size:.95rem;margin-top:.8rem}
+.track .meta{font-family:var(--display);font-weight:500;font-size:.72rem;color:var(--ice-dim);margin-top:1.4rem;letter-spacing:.02em}
+.track .go{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-family:var(--display);font-weight:600;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.track .go .arr{transition:transform .28s var(--ease)}
+.track:hover .go .arr{transform:translateX(4px)}
+.t1{--c:var(--emerald);--c-glow:rgba(52,211,153,.16);--c-line:rgba(52,211,153,.45)}
+.t2{--c:var(--sky);--c-glow:rgba(56,189,248,.16);--c-line:rgba(56,189,248,.45)}
+.t3{--c:var(--purple);--c-glow:rgba(167,139,250,.16);--c-line:rgba(167,139,250,.45)}
+
+/* ============ PATH (timeline) ============ */
+.timeline{position:relative;margin-top:3.6rem}
+.tl-line{position:absolute;top:1.4rem;left:6%;right:6%;height:1px;background:linear-gradient(90deg,var(--emerald),var(--sky),var(--purple));opacity:.45}
+.tl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem)}
+.tl-node{position:relative}
+.tl-badge{width:2.8rem;height:2.8rem;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:800;font-size:1.1rem;background:var(--bg-2);border:1px solid var(--c);color:var(--c);position:relative;z-index:1}
+.tl-node h3{font-size:1.2rem;font-weight:700;margin-top:1.1rem}
+.tl-node p{color:var(--fg-soft);font-size:.95rem;margin-top:.6rem;max-width:34ch}
+.tl-node a{font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.04em;color:var(--c);display:inline-block;margin-top:1rem;border-bottom:1px solid transparent;transition:border-color .25s}
+.tl-node a:hover{border-color:currentColor}
+.tl-node:nth-child(1){--c:var(--emerald)}.tl-node:nth-child(2){--c:var(--sky)}.tl-node:nth-child(3){--c:var(--purple)}
+@media(max-width:760px){
+  .tl-grid{grid-template-columns:1fr;gap:2rem}
+  .tl-line{left:1.4rem;right:auto;top:1.4rem;bottom:1.4rem;width:1px;height:auto}
+  .tl-node{padding-left:3.8rem}
+  .tl-node .tl-badge{position:absolute;left:0;top:0}
+  .tl-node h3{margin-top:.2rem}
+}
+
+/* ============ CTA ============ */
+.cta{text-align:center;padding:clamp(6rem,16vh,11rem) 0;position:relative}
+.cta .kicker{display:block;margin-bottom:1.4rem;color:var(--emerald)}
+.cta h2{font-size:clamp(2.6rem,9vw,7rem);font-weight:900;line-height:.95;letter-spacing:-.025em}
+.cta h2 em{font-style:normal;color:var(--emerald)}
+.cta p{max-width:44ch;margin:1.6rem auto 0;color:var(--fg-soft);font-size:clamp(1rem,1.6vw,1.15rem)}
+.cta .actions{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.6rem}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding:3rem 0 4rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:space-between;align-items:center}
+footer .fbrand{font-family:var(--display);font-weight:600;font-size:.84rem;letter-spacing:.02em;color:var(--fg-soft)}
+footer .fbrand a{color:var(--sky)}
+footer .flinks{display:flex;gap:1.2rem;font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ice-dim)}
+footer .flinks a:hover{color:var(--fg)}
+footer .copy{width:100%;font-size:.8rem;color:var(--ice-dim);border-top:1px solid var(--line);padding-top:1.4rem;margin-top:.4rem;max-width:70ch;line-height:1.6}
+
+/* ============ LIGHTBOX ============ */
+.lightbox{position:fixed;inset:0;z-index:120;background:rgba(5,8,13,.94);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;padding:4vw;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-width:100%;max-height:92vh;border-radius:12px;border:1px solid var(--line-2);box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.lightbox .x{position:absolute;top:1.4rem;right:1.6rem;font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);border:1px solid var(--line-2);padding:.5rem .9rem;border-radius:99px;cursor:pointer}
+.lightbox .x:hover{color:var(--fg);border-color:var(--ice)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.001ms!important}
+  .reveal,.hero h1 .ln>span,.hero .sub,.hero .actions,.hero .badge{opacity:1!important;transform:none!important}
+}
+</style>
+<link href="https://inematds.github.io/profissionalai/promocao/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/profissionalai/en/promocao/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/profissionalai/es/promocao/" hreflang="es" rel="alternate"/></head>
+<body class="loading"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="./" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../en/promocao/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../es/promocao/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<div id="loader"><div class="loader-mark">INEMA.CLUB</div><div class="loader-bar"><i></i></div></div>
+<div aria-hidden="true" class="atmos"><div class="aurora"></div><div class="grid"></div></div>
+<div aria-hidden="true" class="grain"></div>
+<div class="progress" id="progress"></div>
+<nav id="nav">
+<div class="brand"><span class="dot"></span>Integra com IA<span class="sep">/</span><a class="club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a></div>
+<div class="nav-links">
+<a class="ghost" href="#habilidades">Habilidades</a>
+<a class="ghost" href="#trilhas">Trilhas</a>
+<a class="cta" href="../curso/trilha1/index.html">Começar →</a>
+</div>
+</nav>
+<main>
+<!-- HERO -->
+<header class="hero wrap" id="top">
+<div aria-hidden="true" class="orb">
+<div class="glow"></div><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring spin"></div>
+</div>
+<span class="badge"><span class="dot"></span>Curso gratuito · 3 trilhas · 6 habilidades</span>
+<h1>
+<span class="ln"><span>Integra sua</span></span>
+<span class="ln"><span>Profissão</span></span>
+<span class="ln"><span>com <em>IA</em></span></span>
+</h1>
+<p class="sub">A IA não vai embora. Em vez de trocar de carreira, encontre a <strong>versão IA-nativa</strong> da profissão que você já tem. Deixe de ser espectador e vire <strong>a pessoa de IA</strong> do seu time.</p>
+<div class="actions">
+<a class="btn btn-primary" href="../curso/trilha1/index.html">Começar pela Trilha 1 <span class="arr">→</span></a>
+<a class="btn btn-ghost" href="#trilhas">Ver o caminho <span class="arr">↓</span></a>
+</div>
+<div class="scrollcue"><span>Role</span><span class="bar"></span></div>
+</header>
+<!-- MANIFESTO + LEDGER -->
+<section class="section wrap">
+<p class="kicker reveal">Por que agora</p>
+<h2 class="big reveal" data-d="1" style="margin-top:1.4rem">
+      Quando o Excel chegou, quem insistiu no papel <span class="muted">ficou para trás.</span>
+<span class="hl">A IA é o Excel</span>, só que muito maior.
+    </h2>
+<p class="section-lead reveal" data-d="2">Atinge todas as funções ao mesmo tempo. Os números abaixo não são previsão. Já estão acontecendo.</p>
+<div class="ledger">
+<div class="lrow reveal"><div class="lnum" data-count="78" data-suffix="%">0%</div><div class="ltxt"><b>das organizações</b> já usavam IA em 2024 (eram 55% em 2023).</div><div class="lsrc">Stanford AI Index · 2025</div></div>
+<div class="lrow reveal"><div class="lnum" data-count="78" data-prefix="+">0</div><div class="ltxt"><b>milhões de empregos</b> líquidos até 2030 (170 mi criados, 92 mi eliminados).</div><div class="lsrc">WEF Future of Jobs · 2025</div></div>
+<div class="lrow reveal"><div class="lnum" data-count="39" data-suffix="%">0%</div><div class="ltxt"><b>das habilidades-chave</b> vão mudar até 2030.</div><div class="lsrc">WEF Future of Jobs · 2025</div></div>
+<div class="lrow reveal"><div class="lnum" data-count="34" data-prefix="+" data-suffix="%">0%</div><div class="ltxt"><b>de produtividade</b> para iniciantes com IA (até 55% mais rápido no código).</div><div class="lsrc">NBER · 2023 · Copilot</div></div>
+</div>
+</section>
+<!-- PLATE 1 -->
+<section class="plate wrap" id="mapa">
+<figure class="plate-fig reveal">
+<img alt="Mapa da IA em todas as profissões: engenharia, educação, atendimento, dados, finanças, gestão, tecnologia e comunicação" data-zoom="" decoding="async" height="788" loading="lazy" src="../assets/img/ia-todas-profissoes.webp" width="1400"/>
+<figcaption>Toque para ampliar</figcaption>
+</figure>
+<div class="plate-copy">
+<h3 class="reveal">IA não é de um nicho. Ela chega em <span class="accent-sk">toda profissão</span>, inclusive na sua.</h3>
+<p class="reveal" data-d="1">Engenharia, educação, atendimento, dados, finanças, gestão, comunicação. Cada área ganha a sua versão IA-nativa, e quem ocupa esse lugar primeiro vira referência.</p>
+<button class="zoom reveal" data-d="2" data-zoom-trigger="">⤢ Ver o mapa completo</button>
+</div>
+</section>
+<!-- SKILLS -->
+<section class="section wrap" id="habilidades">
+<p class="kicker reveal">A espinha do curso</p>
+<h2 class="section-h reveal" data-d="1" style="margin-top:1.2rem">As 6 habilidades que blindam sua carreira</h2>
+<p class="section-lead reveal" data-d="2">Seis habilidades que valem para qualquer cargo, distribuídas pelas 3 trilhas. Toque para ir direto.</p>
+<div class="skills">
+<a class="skill reveal" href="../curso/trilha1/modulo-1-4.html"><span class="idx">01</span><div class="sbody"><h3>Seja a Pessoa de IA</h3><p>Vire a referência do seu círculo, sem trocar de carreira.</p></div><span class="arr">→</span></a>
+<a class="skill reveal" href="../curso/trilha2/modulo-2-3.html"><span class="idx">02</span><div class="sbody"><h3>Gosto &amp; Critério</h3><p>Decidir o que merece o seu nome. Nunca confiar no primeiro output.</p></div><span class="arr">→</span></a>
+<a class="skill reveal" href="../curso/trilha3/modulo-3-2.html"><span class="idx">03</span><div class="sbody"><h3>Engenharia de Contexto</h3><p>Prompt é como você pede; contexto é o que a IA sabe.</p></div><span class="arr">→</span></a>
+<a class="skill reveal" href="../curso/trilha2/modulo-2-2.html"><span class="idx">04</span><div class="sbody"><h3>Velocidade de Iteração</h3><p>Quem itera mais rápido, sem perder qualidade, vence.</p></div><span class="arr">→</span></a>
+<a class="skill reveal" href="../curso/trilha3/modulo-3-4.html"><span class="idx">05</span><div class="sbody"><h3>Construa seu Jarvis</h3><p>Agente e workflow: sistemas que rodam sozinhos a seu favor.</p></div><span class="arr">→</span></a>
+<a class="skill reveal" href="../curso/trilha2/modulo-2-4.html"><span class="idx">06</span><div class="sbody"><h3>Blindagem &amp; Múltiplas Rendas</h3><p>Sua apólice: várias fontes de renda de uma só paixão.</p></div><span class="arr">→</span></a>
+</div>
+</section>
+<!-- PLATE 2 -->
+<section class="plate flip wrap" id="blindagem">
+<figure class="plate-fig reveal">
+<img alt="As 6 habilidades de IA que transformam uma carreira vulnerável em uma carreira protegida" data-zoom="" decoding="async" height="788" loading="lazy" src="../assets/img/blindar-carreira.webp" width="1400"/>
+<figcaption>Toque para ampliar</figcaption>
+</figure>
+<div class="plate-copy">
+<h3 class="reveal">De carreira <span style="color:var(--ice-dim)">vulnerável</span> a carreira <span class="accent-em">protegida</span>.</h3>
+<p class="reveal" data-d="1">As 6 habilidades viram a sua blindagem contra a obsolescência: ser a pessoa da IA, julgamento, contexto, iteração, o seu Jarvis e a sua segurança.</p>
+<button class="zoom reveal" data-d="2" data-zoom-trigger="">⤢ Ver a transformação</button>
+</div>
+</section>
+<!-- TRILHAS -->
+<section class="section wrap" id="trilhas">
+<p class="kicker reveal">O percurso</p>
+<h2 class="section-h reveal" data-d="1" style="margin-top:1.2rem">As 3 trilhas</h2>
+<p class="section-lead reveal" data-d="2">Do terreno à prática ao domínio avançado. <strong>12 módulos, 72 tópicos, ~7h30.</strong></p>
+<div class="tracks">
+<a class="track t1 reveal" data-d="1" href="../curso/trilha1/index.html">
+<div class="tnum">01</div><div class="tname">Trilha · Fundamentos</div>
+<h3>Fundamentos</h3>
+<p>Dados de mercado, a evolução da IA e das profissões, e a habilidade de virar a pessoa de IA.</p>
+<div class="meta">4 módulos · 24 tópicos · ~2h30</div>
+<span class="go">Entrar <span class="arr">→</span></span>
+</a>
+<a class="track t2 reveal" data-d="2" href="../curso/trilha2/index.html">
+<div class="tnum">02</div><div class="tname">Trilha · Carreiras</div>
+<h3>Carreiras</h3>
+<p>Diagnóstico, aceleração de produção, gosto &amp; critério e blindagem com múltiplas rendas.</p>
+<div class="meta">4 módulos · 24 tópicos · ~2h30</div>
+<span class="go">Entrar <span class="arr">→</span></span>
+</a>
+<a class="track t3 reveal" data-d="3" href="../curso/trilha3/index.html">
+<div class="tnum">03</div><div class="tname">Trilha · Avançado</div>
+<h3>Avançado</h3>
+<p>A pirâmide prompt, vibe code, contexto, agentic e arquitetura de intenção, até o seu Jarvis.</p>
+<div class="meta">4 módulos · 24 tópicos · ~2h40</div>
+<span class="go">Entrar <span class="arr">→</span></span>
+</a>
+</div>
+</section>
+<!-- PATH -->
+<section class="section wrap">
+<p class="kicker reveal">O caminho de carreira</p>
+<h2 class="section-h reveal" data-d="1" style="margin-top:1.2rem;max-width:20ch">Três passos: de "uso a IA às vezes" para "minha carreira está integrada"</h2>
+<div class="timeline">
+<div aria-hidden="true" class="tl-line"></div>
+<div class="tl-grid">
+<div class="tl-node reveal" data-d="1"><div class="tl-badge">1</div><h3>Diagnóstico</h3><p>Mapeie suas tarefas, separe julgamento de repetível e escolha 1 alvo com métrica clara.</p><a href="../curso/trilha2/modulo-2-1.html">Módulo 2.1 →</a></div>
+<div class="tl-node reveal" data-d="2"><div class="tl-badge">2</div><h3>Plano 30-60-90</h3><p>0 a 30: 1 ferramenta + 1 workflow. 31 a 60: medir e mostrar. 61 a 90: escalar e abrir 1 ramo.</p><a href="../curso/trilha2/modulo-2-4.html">Módulo 2.4 →</a></div>
+<div class="tl-node reveal" data-d="3"><div class="tl-badge">3</div><h3>Blindagem</h3><p>Múltiplas rendas de uma paixão, com o seu Jarvis trabalhando em segundo plano.</p><a href="../curso/trilha3/modulo-3-4.html">Módulo 3.4 →</a></div>
+</div>
+</div>
+</section>
+<!-- PLATE 3 (infográfico) -->
+<section class="plate wrap" id="infografico">
+<figure class="plate-fig reveal">
+<img alt="Infográfico das 6 habilidades de IA para blindar a carreira, em um único quadro" data-zoom="" decoding="async" height="1402" loading="lazy" src="../assets/img/6-habilidades.webp" style="max-width:min(420px,100%)" width="1122"/>
+<figcaption>Toque para ampliar, salvar ou imprimir</figcaption>
+</figure>
+<div class="plate-copy">
+<h3 class="reveal">As 6 habilidades, num <span class="accent-am">único quadro</span>.</h3>
+<p class="reveal" data-d="1">O resumo visual do curso, pronto para você salvar, imprimir ou compartilhar com o time.</p>
+<button class="zoom reveal" data-d="2" data-zoom-trigger="">⤢ Abrir em tamanho real</button>
+</div>
+</section>
+<!-- CTA -->
+<section class="cta wrap">
+<span class="kicker reveal">Começa agora, é de graça</span>
+<h2 class="reveal" data-d="1">Blinde sua<br/><em>carreira</em></h2>
+<p class="reveal" data-d="2">12 módulos, 72 tópicos, ~7h30. Self-contained, funciona offline, com a sua jornada salva no navegador.</p>
+<div class="actions reveal" data-d="3">
+<a class="btn btn-primary" href="../curso/trilha1/index.html">Começar pela Trilha 1 <span class="arr">→</span></a>
+<a class="btn btn-ghost" href="../index.html">Ver a página do curso <span class="arr">→</span></a>
+<a class="btn btn-ghost" href="../guia-de-acao.html">⬇ Guia de Ação</a>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="fbrand">Integra sua Profissão com IA · <a href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a></div>
+<div class="flinks">
+<a href="../curso/trilha1/index.html">Fundamentos</a>
+<a href="../curso/trilha2/index.html">Carreiras</a>
+<a href="../curso/trilha3/index.html">Avançado</a>
+<a href="https://github.com/inematds/profissionalai" rel="noopener" target="_blank">GitHub</a>
+</div>
+<div class="copy">© 2026 · Conteúdo educacional. Dados atribuídos às fontes citadas (WEF, Stanford AI Index, NBER). Concepção de scroll imersivo inspirada em referência awwwards, com a identidade visual do INEMA.</div>
+</div>
+</footer>
+<div class="lightbox" id="lightbox"><span class="x" data-close="">✕ Fechar</span><img alt="" src=""/></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function startHero(){
+    document.body.classList.remove('loading');
+    var l = document.getElementById('loader'); if(l) l.classList.add('done');
+    requestAnimationFrame(function(){ var h=document.querySelector('.hero'); if(h) h.classList.add('ready'); });
+  }
+  window.addEventListener('load', function(){ setTimeout(startHero, reduced ? 0 : 1400); });
+  setTimeout(startHero, 3000);
+
+  var lenis=null;
+  if(!reduced && window.Lenis){
+    lenis = new Lenis({ lerp:.1, wheelMultiplier:1 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href'); if(id.length<2) return;
+      var el=document.querySelector(id); if(!el) return; e.preventDefault();
+      if(lenis) lenis.scrollTo(el,{offset:-10}); else el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  var nav=document.getElementById('nav'), prog=document.getElementById('progress');
+  function onScroll(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    nav.classList.toggle('solid', y>40);
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?(y/h*100):0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  if(lenis) lenis.on('scroll',onScroll); else onScroll();
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  var seen=new WeakSet();
+  var cio=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting||seen.has(en.target)) return; seen.add(en.target);
+      var el=en.target, end=+el.dataset.count, pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+      if(reduced){ el.textContent=pre+end+suf; return; }
+      var dur=1300, t0=null;
+      function tick(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var e=1-Math.pow(1-p,3);
+        el.textContent=pre+Math.round(end*e)+suf; if(p<1) requestAnimationFrame(tick); }
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  if(!reduced && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    if(lenis) lenis.on('scroll', ScrollTrigger.update);
+    if(window.matchMedia('(min-width:821px) and (pointer:fine)').matches){
+      document.querySelectorAll('.plate-fig img').forEach(function(img){
+        gsap.fromTo(img,{yPercent:-3},{yPercent:3,ease:'none',
+          scrollTrigger:{trigger:img.closest('.plate'),start:'top bottom',end:'bottom top',scrub:.4}});
+      });
+      var orb=document.querySelector('.hero .orb');
+      if(orb) gsap.to(orb,{yPercent:14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.4}});
+    }
+  }
+
+  var lb=document.getElementById('lightbox'), lbImg=lb.querySelector('img');
+  function open(src,alt){ lbImg.src=src; lbImg.alt=alt||''; lb.classList.add('open'); document.body.style.overflow='hidden'; if(lenis)lenis.stop(); }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; if(lenis)lenis.start(); }
+  document.querySelectorAll('[data-zoom]').forEach(function(img){ img.addEventListener('click',function(){ open(img.src,img.alt); }); });
+  document.querySelectorAll('[data-zoom-trigger]').forEach(function(t){
+    t.addEventListener('click',function(){ var im=t.closest('.plate').querySelector('img'); if(im) open(im.src,im.alt); });
+  });
+  lb.addEventListener('click',function(e){ if(e.target===lb||e.target.hasAttribute('data-close')) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body>
+</html>
