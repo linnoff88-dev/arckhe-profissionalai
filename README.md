@@ -6,13 +6,13 @@
 </div>
 
 
-Curso aberto e gratuito do **[INEMA.CLUB](https://inema.club)** sobre como **integrar a sua profissêÂ£o com a InteligêÂªncia Artificial** ê¢â¬â em vez de trocar de carreira, encontrar a versêÂ£o IA-nativa da que vocêÂª jêÂ¡ tem.
+Curso aberto e gratuito do **[ARCKHÉ AI](https://ARCKHÉ AI)** sobre como **integrar a sua profissêÂ£o com a InteligêÂªncia Artificial** ê¢â¬â em vez de trocar de carreira, encontrar a versêÂ£o IA-nativa da que vocêÂª jêÂ¡ tem.
 
-ê°Å¸ââ **Acesse online:** https://inematds.github.io/profissionalai/
+ê°Å¸ââ **Acesse online:** https://linnoff88-dev.github.io/arckhe-/
 
 ## O que êÂ©
 
-Um curso self-contained (HTML + Tailwind + JS, sem build/backend) no formato INEMA v2, com **camada de aprendizagem**: progresso por têÂ³pico/mêÂ³dulo/trilha, marcar como lido, dêÂºvidas, anotaêÂ§êÂµes/grifos no texto, painel "minha jornada", export/import da jornada em `.json`, e temas de leitura (escuro/claro/sêÂ©pia/foco/alto contraste). Funciona offline ê¢â¬â basta abrir o `index.html`.
+Um curso self-contained (HTML + Tailwind + JS, sem build/backend) no formato ARCKHÉ v2, com **camada de aprendizagem**: progresso por têÂ³pico/mêÂ³dulo/trilha, marcar como lido, dêÂºvidas, anotaêÂ§êÂµes/grifos no texto, painel "minha jornada", export/import da jornada em `.json`, e temas de leitura (escuro/claro/sêÂ©pia/foco/alto contraste). Funciona offline ê¢â¬â basta abrir o `index.html`.
 
 ## Estrutura ê¢â¬â 3 trilhas, 12 mêÂ³dulos, 72 têÂ³picos (~7h30)
 
@@ -35,15 +35,15 @@ As estatêÂ­sticas sêÂ£o atribuêÂ­das êÂ s fontes citadas: WE
 
 ## LicenêÂ§a
 
-ConteêÂºdo educacional do INEMA.CLUB. Sinta-se livre para estudar e compartilhar.
+ConteêÂºdo educacional do ARCKHÉ AI. Sinta-se livre para estudar e compartilhar.
 
-<!-- inema-backlink:v1 -->
-## Mais no INEMA.CLUB
+<!-- ARCKHÉ-backlink:v1 -->
+## Mais no ARCKHÉ AI
 
-- [Ficha completa deste curso](https://www.inema.club/cursos/161-integra-sua-profissao-com-ia/)
-- [Guia: como aprender inteligêÂªncia artificial](https://www.inema.club/aprender-inteligencia-artificial/)
-- [Todos os cursos](https://www.inema.club/cursos/)
-<!-- /inema-backlink:v1 -->
+- [Ficha completa deste curso](https://www.ARCKHÉ AI/cursos/161-integra-sua-profissao-com-ia/)
+- [Guia: como aprender inteligêÂªncia artificial](https://www.ARCKHÉ AI/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.ARCKHÉ AI/cursos/)
+<!-- /ARCKHÉ-backlink:v1 -->
 
 ---
 
